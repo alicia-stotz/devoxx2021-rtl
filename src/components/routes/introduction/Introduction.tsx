@@ -17,14 +17,13 @@ export const Introduction = () => {
         Guiding Principles in <cite title="Source Title">React Testing Library web site</cite>
       </figcaption>
     </figure>
-    <p>RTL encourage donc à ne pas tester les détails d'implémentation. Tel que :
-      <ol>
-        <li>les methodes du composant</li>
-        <li>les states du composant</li>
-        <li>les composants enfants</li>
-        <li>le cycle de vie du composant</li>
-      </ol>
-    </p>
+    <p>RTL encourage donc à ne pas tester les détails d'implémentation. Tel que :</p>
+    <ol>
+      <li>les methodes du composant</li>
+      <li>les states du composant</li>
+      <li>les composants enfants</li>
+      <li>le cycle de vie du composant</li>
+    </ol>
     <p>RTL n'est pas une alternative à Jest, il a besoin de ce type de framework pour fonctionner.
       Car il n'est pas un "test runner" ou un framework
     </p>
