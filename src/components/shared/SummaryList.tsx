@@ -15,9 +15,9 @@ const list: ISummaryList[] = [
     label: 'Introduction'
   },
   {
-    id: 'exemple',
-    link: '/',
-    title: 'Exemple section',
+    id: 'example',
+    link: '/example',
+    title: 'Example section',
     label: 'Exemple'
   }
 ];

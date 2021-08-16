@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar } from '../shared/Navbar';
 import { SummaryList } from '../shared/SummaryList';
 
-import { Introduction } from '../routes/introduction/Introduction';
+import { Introduction } from '../routes/Introduction/Introduction';
+import { Example } from '../routes/Example/Example';
 
 
 const App: React.FC = () => {
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Router>
             <Switch>
               <Route exact path="/" component={Introduction}></Route>
+              <Route exact path="/example" component={Example}></Route>
             </Switch>
           </Router>
         </div>
