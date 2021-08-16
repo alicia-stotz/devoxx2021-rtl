@@ -9,7 +9,12 @@ export interface IPokemon {
   base_experience: number;
 }
 
-export const PokemonCard = (pokemon: IPokemon, type: "Mine" | "Grass") => {
+export interface IPokemonCardProps {
+  pokemon: IPokemon;
+  type: "Mine" | "Grass";
+}
+
+export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
   return <div className="card">
     <div className="card-body">
       <div className="d-flex align-items-baseline justify-content-between">

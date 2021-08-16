@@ -23,6 +23,6 @@ const POKEMON: IPokemon[] = [
 export const Example = () => {
   return <div className="container row">
     {POKEMON.map((pokemon: IPokemon) =>
-      <div key={pokemon.id} className="col-6">{PokemonCard(pokemon, "Mine")}</div>)}
+      <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} type="Mine" /></div>)}
   </div>
 }
