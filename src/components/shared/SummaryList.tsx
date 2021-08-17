@@ -29,7 +29,7 @@ export const SummaryList = () => {
         <a key={item.id}
           href={item.link}
           title={item.title}
-          className="list-group-item list-group-item-action">
+          className={`list-group-item list-group-item-action${window.location.pathname === item.link ? " list-group-item-secondary" : ""}`}>
           {item.label}
         </a>
       )
