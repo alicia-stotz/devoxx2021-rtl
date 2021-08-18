@@ -1,4 +1,11 @@
 import React from 'react';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
+export interface IPokemonType {
+  name: string;
+  url: string;
+}
 
 export interface IPokemon {
   id: number;
@@ -7,23 +14,27 @@ export interface IPokemon {
   order: number;
   weight: number;
   base_experience: number;
+  types?: IPokemonType[];
 }
 
 export interface IPokemonCardProps {
   pokemon: IPokemon;
-  type: "Mine" | "Grass";
+  type?: "Mine" | "Grass";
 }
 
 export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
+  const [showInformation, setShowInformation] = React.useState<Boolean>(false);
+
   return <div className="card">
-    <div className="card-body">
+    <div className="card-body"
+      title={type ? (type === "Mine" ? "Pokemon card: Pokedex" : "Pokemon card") : "Pokemon card"}>
       <div className="d-flex align-items-baseline justify-content-between">
-        <h5 className="card-title text-capitalize">{pokemon.name}</h5>
-        <span>{pokemon.order}</span>
+        <h5 className="card-title text-capitalize" title="Pokemon name">{pokemon.name}</h5>
+        <span title="Pokemon number">{pokemon.order}</span>
       </div>
 
       <h6 className="card-subtitle mb-2 text-muted">{type}</h6>
-      <table className="table table-striped table-sm">
+      <table className="table table-striped table-sm" title="Pokemon information">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -33,17 +44,58 @@ export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
         <tbody>
           <tr>
             <th scope="row">Height</th>
-            <td>{pokemon.height}</td>
+            <td title="Pokemon information - height">{pokemon.height}</td>
           </tr>
           <tr>
             <th scope="row">Weight</th>
-            <td>{pokemon.weight}</td>
+            <td title="Pokemon information - weight">{pokemon.weight}</td>
           </tr>
           <tr>
             <th scope="row">Base experience</th>
-            <td>{pokemon.base_experience}</td>
+            <td title="Pokemon information - base experience">{pokemon.base_experience}</td>
           </tr>
+          {
+            (showInformation && pokemon.types) &&
+            <tr>
+              <th scope="row">Types</th>
+              <td title="Pokemon information - types">
+                {
+                  pokemon.types.map((type: IPokemonType, index: number) =>
+                    <React.Fragment key={index}>
+                      <a className="text-capitalize"
+                        href={type.url}
+                        rel="noreferrer"
+                        target="_blank">
+                        {type.name}
+                      </a><br />
+                    </React.Fragment>
+                  )
+                }
+              </td>
+            </tr>
+          }
         </tbody>
+        {
+          pokemon.types ?
+            <tfoot>
+              <tr>
+                <td className="text-center" colSpan={2}>
+                  <button type="button"
+                    onClick={() => setShowInformation(!showInformation)}
+                    className="btn btn-link btn-sm w-100 bg-white"
+                    title={showInformation ? "Show less information" : "Show more information"}>
+                    {
+                      showInformation ?
+                        <KeyboardArrowUpIcon />
+                        : <KeyboardArrowDownIcon />
+                    }
+
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+            : null
+        }
       </table>
       <a type="button"
         href={`https://pokeapi.co/api/v2/pokemon/${pokemon.id}`}
@@ -54,9 +106,11 @@ export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
         All information
       </a>
       {
-        type === "Mine" ?
-          <button className="btn btn-danger">Remove</button>
-          : <button className="btn btn-success">Add to Pokedex</button>
+        type ?
+          (type === "Mine" ?
+            <button className="btn btn-danger" title="Remove Pokemon">Remove</button>
+            : <button className="btn btn-success" title="Add Pokemon">Add to Pokedex</button>)
+          : null
       }
     </div>
   </div>

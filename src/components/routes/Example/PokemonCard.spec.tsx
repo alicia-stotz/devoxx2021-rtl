@@ -9,12 +9,11 @@ const defaultProps: IPokemonCardProps = {
   pokemon: {
     id: 1,
     name: "test",
-    height: 10,
+    height: 15,
     order: 1,
-    weight: 10,
-    base_experience: 10
-  },
-  type: "Mine"
+    weight: 9,
+    base_experience: 55
+  }
 };
 
 describe("Pokemon card component", () => {
