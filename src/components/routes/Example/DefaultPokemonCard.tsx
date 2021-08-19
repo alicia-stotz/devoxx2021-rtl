@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { IPokemon, PokemonCard } from './PokemonCard';
+import { SummaryButton } from '../../shared/SummaryButton';
 
 const POKEMON: IPokemon[] = [
   {
@@ -36,8 +38,10 @@ const POKEMON: IPokemon[] = [
   }
 ];
 
+const SUMMARY_CONTENT: JSX.Element = <div></div>
 export const DefaultPokemonCard = () => {
   return <div className="container row">
+    <SummaryButton content={SUMMARY_CONTENT} />
     {POKEMON.map((pokemon: IPokemon) =>
       <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} /></div>)}
   </div>
