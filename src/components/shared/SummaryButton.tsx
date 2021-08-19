@@ -1,4 +1,5 @@
 import React from 'react';
+import ClearIcon from '@material-ui/icons/Clear';
 
 export interface ISummaryButtonProps {
   content: JSX.Element;
@@ -6,15 +7,26 @@ export interface ISummaryButtonProps {
 
 export const SummaryButton = ({ content }: ISummaryButtonProps) => {
   const [displaySummary, setDisplaySummary] = React.useState<Boolean>(false);
-  return <div className="mb-3 summary-button">
-    <button
-      type="button"
-      className="btn btn-secondary btn-sm float-right"
-      style={{ float: "right" }}
-      name={displaySummary ? "Hide summary" : "View summary"}
-      onClick={() => setDisplaySummary(!displaySummary)}>
-      Summary
+  return <div className={`mb-3 summary-button${displaySummary ? " border p-3" : ""}`}>
+    {
+      displaySummary ?
+        <button
+          type="button"
+          title="Hide summary"
+          style={{ float: "right" }}
+          onClick={() => setDisplaySummary(false)}
+          className="btn btn-light btn-sm float-right">
+          <ClearIcon fontSize="small" />
+        </button>
+        : <button
+          type="button"
+          className="btn btn-secondary btn-sm float-right"
+          style={{ float: "right" }}
+          title="View summary"
+          onClick={() => setDisplaySummary(true)}>
+          Summary
           </button>
+    }
     {displaySummary ? content : null}
   </div>
 };

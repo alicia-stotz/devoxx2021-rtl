@@ -86,8 +86,8 @@ export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
                     title={showInformation ? "Show less information" : "Show more information"}>
                     {
                       showInformation ?
-                        <KeyboardArrowUpIcon />
-                        : <KeyboardArrowDownIcon />
+                        <KeyboardArrowUpIcon fontSize="small" />
+                        : <KeyboardArrowDownIcon fontSize="small" />
                     }
 
                   </button>
