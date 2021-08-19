@@ -20,7 +20,7 @@ const App: React.FC = () => {
           <Router>
             <Switch>
               <Route exact path="/" component={Introduction}></Route>
-              <Route exact path="/example" component={Example}></Route>
+              <Route path="/example" component={Example}></Route>
             </Switch>
           </Router>
         </div>

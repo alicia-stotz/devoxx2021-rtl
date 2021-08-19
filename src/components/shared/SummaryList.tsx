@@ -16,9 +16,9 @@ const list: ISummaryList[] = [
   },
   {
     id: 'example',
-    link: '/example',
-    title: 'Example section',
-    label: 'Exemple'
+    link: '/example/default',
+    title: 'Example section: Default Pokemon card',
+    label: 'Card Pokemon'
   }
 ];
 
