@@ -66,9 +66,8 @@ export const SectionList = () => {
                     <a
                       key={`${item.id}-${section.id}`}
                       href={section.link}
-                      style={{ fontWeight: "lighter" }}
                       title={section.title}
-                      className={`list-group-item font-weight-light px-4${activeLink(section.link, 2) ? ' text-primary' : ''}`}>
+                      className={`list-group-item fw-lighter px-4${activeLink(section.link, 2) ? ' text-primary' : ''}`}>
                       {section.label}
                     </a>
                   )

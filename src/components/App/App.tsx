@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <div className="App" style={{ height: '100vh' }}>
         <Navbar />
         <div className="row h-100">
-          <div className="col-3 py-4" style={{ paddingRight: 0 }}>
+          <div className="col-3 py-4 pe-0">
             <SectionList />
           </div>
           <div className="col-9 py-4 bg-light">

@@ -13,9 +13,8 @@ export const SummaryButton = ({ content }: ISummaryButtonProps) => {
         <button
           type="button"
           title="Hide summary"
-          style={{ float: "right" }}
           onClick={() => setDisplaySummary(false)}
-          className="btn btn-light btn-sm float-right">
+          className="btn btn-light btn-sm float-end">
           <ClearIcon fontSize="small" />
         </button>
         : <button
