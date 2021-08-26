@@ -21,14 +21,46 @@ const POKEMON: IPokemon[] = [
         url: "https://pokeapi.co/api/v2/type/4/"
       }
     ]
+  },
+  {
+    id: 16,
+    name: "pidgey",
+    height: 3,
+    order: 21,
+    weight: 18,
+    base_experience: 50,
+    types: [
+      {
+        name: "normal",
+        url: "https://pokeapi.co/api/v2/type/1/"
+      },
+      {
+        name: "flying",
+        url: "https://pokeapi.co/api/v2/type/3/"
+      }
+    ]
+  },
+  {
+    id: 10,
+    name: "caterpie",
+    height: 3,
+    order: 14,
+    weight: 29,
+    base_experience: 39,
+    types: [
+      {
+        name: "bug",
+        url: "https://pokeapi.co/api/v2/type/7/"
+      }
+    ]
   }
 ];
 
 const SUMMARY_CONTENT: JSX.Element = <div></div>
-export const DefaultPokemonCard = () => {
+export const Pokedex = () => {
   return <div className="container row">
     <SummaryButton content={SUMMARY_CONTENT} />
     {POKEMON.map((pokemon: IPokemon) =>
-      <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} /></div>)}
+      <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} type="Mine" /></div>)}
   </div>
 }

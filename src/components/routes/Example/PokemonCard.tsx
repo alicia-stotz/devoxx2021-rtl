@@ -25,7 +25,7 @@ export interface IPokemonCardProps {
 export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
   const [showInformation, setShowInformation] = React.useState<Boolean>(false);
 
-  return <div className="card">
+  return <div className="pokemon-card card mb-2">
     <div className="card-body"
       title={type ? (type === "Mine" ? "Pokemon card: Pokedex" : "Pokemon card") : "Pokemon card"}>
       <div className="d-flex align-items-baseline justify-content-between">
