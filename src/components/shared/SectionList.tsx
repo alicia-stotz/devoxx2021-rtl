@@ -29,6 +29,12 @@ const list: ISummaryList[] = [
         link: '/example/default',
         title: 'Default Pokemon card',
         label: 'Card Pokemon',
+      },
+      {
+        id: 'pokedex',
+        link: '/example/pokedex',
+        title: 'Pokedex',
+        label: 'Pokedex',
       }
     ]
   }
@@ -49,7 +55,7 @@ export const SectionList = () => {
 
   return <ul className="list-group list-group-flush list-group-numbered">
     {
-      list.map((item: ISummaryList) =>
+      list.map((item: ISummaryList, indexList: number) =>
         <React.Fragment key={item.id}>
           <a
             href={item.link}
@@ -62,12 +68,12 @@ export const SectionList = () => {
             item.subSection ?
               <ul className="list-group list-group-flush">
                 {
-                  item.subSection.map((section: ISection) =>
+                  item.subSection.map((section: ISection, index: number) =>
                     <a
                       key={`${item.id}-${section.id}`}
                       href={section.link}
                       title={section.title}
-                      className={`list-group-item fw-lighter px-4${activeLink(section.link, 2) ? ' text-primary' : ''}`}>
+                      className={`list-group-item fw-lighter px-4${activeLink(section.link, 2) ? ' text-primary' : ''}${item.subSection!.length > index + 1 ? " border-0" : (list.length > indexList + 1 ? " border-bottom" : "")}`}>
                       {section.label}
                     </a>
                   )
