@@ -20,9 +20,10 @@ export interface IPokemon {
 export interface IPokemonCardProps {
   pokemon: IPokemon;
   type?: "Mine" | "Grass";
+  pokeball?: boolean;
 }
 
-export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
+export const PokemonCard = ({ pokemon, type, pokeball }: IPokemonCardProps) => {
   const [showInformation, setShowInformation] = React.useState<Boolean>(false);
 
   return <div className="pokemon-card card mb-2">
@@ -108,8 +109,8 @@ export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
       {
         type ?
           (type === "Mine" ?
-            <button className="btn btn-danger" title="Remove Pokemon">Remove</button>
-            : <button className="btn btn-success" title="Add Pokemon">Add to Pokedex</button>)
+            <button className="btn btn-danger" title="Remove Pokemon">Remove</button> :
+            <button className="btn btn-success" title="Add Pokemon" disabled={pokeball}>Add to Pokedex</button>)
           : null
       }
     </div>
