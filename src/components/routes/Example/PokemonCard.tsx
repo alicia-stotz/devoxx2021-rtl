@@ -33,7 +33,7 @@ export const PokemonCard = ({ pokemon, type }: IPokemonCardProps) => {
         <span title="Pokemon number">{pokemon.order}</span>
       </div>
 
-      <h6 className="card-subtitle mb-2 text-muted">{type}</h6>
+      <h6 className="card-subtitle mb-2 text-muted">{type === "Mine" ? "Pokedex" : ""}</h6>
       <table className="table table-striped table-sm" title="Pokemon information">
         <thead>
           <tr>
