@@ -35,6 +35,12 @@ const list: ISummaryList[] = [
         link: '/example/pokedex',
         title: 'Pokedex',
         label: 'Pokedex',
+      },
+      {
+        id: 'gameZone',
+        link: '/example/gameZone',
+        title: 'Zone de jeu',
+        label: 'Game zone',
       }
     ]
   }
