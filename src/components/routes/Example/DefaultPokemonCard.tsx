@@ -52,14 +52,8 @@ const SUMMARY_CONTENT: JSX.Element = <div>
       <span>Après avoir rendu le composant - RTL offre differentes fonctions de recherche</span>
       <pre className="mt-3"><code>
         <mark>screen.getByText(...);</mark>
+        <mark>screen.getByRole(...);</mark>
       </code></pre>
-      <ul>
-        <li>Role : getByRole</li>
-        <li>LabelText : getByLabelText</li>
-        <li>PlaceholderText : getByPlaceholderText</li>
-        <li>AltText : getByAltText</li>
-        <li>DisplayValue : getByDisplayValue</li>
-      </ul>
     </li>
     <li className="mt-3">
       <h6>

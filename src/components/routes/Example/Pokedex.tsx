@@ -56,7 +56,38 @@ const POKEMON: IPokemon[] = [
   }
 ];
 
-const SUMMARY_CONTENT: JSX.Element = <div></div>
+const SUMMARY_CONTENT: JSX.Element = <div>
+  <ul>
+    <li>
+      <h6>
+        Sélectionner plusieurs éléments{" "}
+        <a href="https://testing-library.com/docs/queries/about#types-of-queries">(reference)</a>
+      </h6>
+      <pre className="mt-3"><code>
+        <mark>screen.getAllByRole(...);</mark>
+        <mark>screen.queryAllByText(...);</mark>
+      </code></pre>
+    </li>
+    <li>
+      <h6>
+        Sélectionner un élément{" "}
+        <a href="https://testing-library.com/docs/queries/about#priority">(reference)</a>
+      </h6>
+      <span>RTL dispose de plusieurs fonctions de selection</span>
+      <pre className="mt-3"><code>
+        <mark>screen.getByTitle(...);</mark>
+      </code></pre>
+      <ul>
+        <li>Role : getByRole</li>
+        <li>LabelText : getByLabelText</li>
+        <li>PlaceholderText : getByPlaceholderText</li>
+        <li>AltText : getByAltText</li>
+        <li>Title : getByTitle</li>
+        <li>DisplayValue : getByDisplayValue</li>
+      </ul>
+    </li>
+  </ul>
+</div>
 const TITLE_CONTENT: JSX.Element =
   <div>
     <h3 className="mb-0">Pokedex</h3>
