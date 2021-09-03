@@ -24,7 +24,54 @@ const POKEMON: IPokemon[] = [
   }
 ];
 
-const SUMMARY_CONTENT: JSX.Element = <div></div>
+const SUMMARY_CONTENT: JSX.Element = <div>
+  <ul>
+    <li>
+      <h6>
+        Rendre un composant{" "}
+        <a href="https://testing-library.com/docs/react-testing-library/api#render">(reference)</a>
+      </h6>
+      <span>RTL est utiliser pour interagire avec le composant comme un utilisateur le ferait</span>
+      <pre className="mt-3"><code>
+        <mark>render(monComposant);</mark>
+      </code></pre>
+    </li>
+    <li>
+      <h6>
+        Acceder au composant{" "}
+        <a href="https://testing-library.com/docs/queries/about#screen">(reference)</a></h6>
+      <pre className="mt-3"><code>
+        <mark>screen.debug();</mark>
+      </code></pre>
+    </li>
+    <li>
+      <h6>
+        Sélectionner un élément{" "}
+        <a href="https://testing-library.com/docs/queries/about#priority">(reference)</a>
+      </h6>
+      <span>Après avoir rendu le composant - RTL offre differentes fonctions de recherche</span>
+      <pre className="mt-3"><code>
+        <mark>screen.getByText(...);</mark>
+      </code></pre>
+      <ul>
+        <li>Role : getByRole</li>
+        <li>LabelText : getByLabelText</li>
+        <li>PlaceholderText : getByPlaceholderText</li>
+        <li>AltText : getByAltText</li>
+        <li>DisplayValue : getByDisplayValue</li>
+      </ul>
+    </li>
+    <li className="mt-3">
+      <h6>
+        Chercher un élément{" "}
+        <a href="https://testing-library.com/docs/queries/about#types-of-queries">(reference)</a>
+      </h6>
+      <pre className="mt-3"><code>
+        <mark>screen.queryByText(...);</mark>
+      </code></pre>
+    </li>
+  </ul>
+</div>
 const TITLE_CONTENT: JSX.Element =
   <div>
     <h3 className="mb-0">Card Pokemon</h3>
