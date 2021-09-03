@@ -33,11 +33,9 @@ describe("ToolBar component", () => {
     });
 
     it("Should increment pokeball number with add button (only one)", async () => {
-      //expect(screen.getByTitle("Number of pokeball").textContent).toEqual("Pokeball: 0");
       fireEvent.click(
         screen.getByRole("button", { name: "Add one Pokeball" })
       );
-      //const newPokeballNumber = await screen.findByTitle("Number of pokeball");
       const newPokeballNumber = screen.getByTitle("Number of pokeball");
       expect(newPokeballNumber.textContent).toEqual("Pokeball: 1");
     });
@@ -48,7 +46,6 @@ describe("ToolBar component", () => {
         screen.getByPlaceholderText("ex : 5"), "3"
       );
       expect(screen.getByRole("button", { name: "Add number of Pokeball write in input" })).not.toBeDisabled();
-      //expect(await screen.findByRole("button", { name: "Add number of Pokeball write in input" })).not.toBeDisabled();
     });
 
     it("Should increment pokeball number if user type something in free input", async () => {
@@ -58,7 +55,6 @@ describe("ToolBar component", () => {
       fireEvent.click(
         screen.getByRole("button", { name: "Add number of Pokeball write in input" })
       );
-      //const newPokeballNumber = await screen.findByTitle("Number of pokeball");
       const newPokeballNumber = screen.getByTitle("Number of pokeball");
       expect(screen.getByDisplayValue("6")).toBeInTheDocument();
       expect(newPokeballNumber.textContent).toEqual("Pokeball: 6");

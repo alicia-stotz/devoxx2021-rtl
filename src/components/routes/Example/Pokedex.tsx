@@ -57,9 +57,14 @@ const POKEMON: IPokemon[] = [
 ];
 
 const SUMMARY_CONTENT: JSX.Element = <div></div>
+const TITLE_CONTENT: JSX.Element =
+  <div>
+    <h3 className="mb-0">Pokedex</h3>
+    <span className="text-secondary fw-lighter">getAll, type de recherche</span>
+  </div>
 export const Pokedex = () => {
   return <div className="container row">
-    <SummaryButton content={SUMMARY_CONTENT} />
+    <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
     {POKEMON.map((pokemon: IPokemon) =>
       <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} type="Mine" /></div>)}
   </div>
