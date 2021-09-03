@@ -32,7 +32,9 @@ const TITLE_CONTENT: JSX.Element =
   </div>
 export const DefaultPokemonCard = () => {
   return <div className="container row">
-    <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
+    <div className="col-12">
+      <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
+    </div>
     {POKEMON.map((pokemon: IPokemon) =>
       <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} /></div>)}
   </div>

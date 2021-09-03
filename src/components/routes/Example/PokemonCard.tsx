@@ -110,7 +110,7 @@ export const PokemonCard = ({ pokemon, type, pokeball }: IPokemonCardProps) => {
         type ?
           (type === "Mine" ?
             <button className="btn btn-danger" title="Remove Pokemon">Remove</button> :
-            <button className="btn btn-success" title="Add Pokemon" disabled={pokeball}>Add to Pokedex</button>)
+            <button className="btn btn-success" title="Add Pokemon" disabled={!pokeball}>Add to Pokedex</button>)
           : null
       }
     </div>

@@ -30,9 +30,9 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise }: IToolBarProps) => 
   }
 
 
-  return <div className="tool-bar card">
+  return <div className="tool-bar card px-3">
     <div className="d-flex justify-content-between py-2 align-items-center">
-      <div className="">
+      <div className="information">
         <span className="me-2" title="Number of pokemon in pokedex">
           Pokedex: <strong>{numberOfPokemon}</strong>
         </span>

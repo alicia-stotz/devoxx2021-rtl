@@ -15,7 +15,7 @@ export const SummaryButton = ({ content, title }: ISummaryButtonProps) => {
           type="button"
           title="Hide summary"
           onClick={() => setDisplaySummary(false)}
-          className="btn btn-light btn-sm float-end">
+          className="btn btn-light btn-sm float-right">
           <ClearIcon fontSize="small" />
         </button>
         :
