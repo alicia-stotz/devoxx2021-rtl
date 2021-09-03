@@ -94,11 +94,25 @@ const TITLE_CONTENT: JSX.Element =
     <span className="text-secondary fw-lighter">getAll, type de recherche</span>
   </div>
 export const Pokedex = () => {
+  const [pokemon, setPokemon] = React.useState<IPokemon[]>(POKEMON);
+
+  const removePokemon = (id: number) => {
+    const initialArray = [...pokemon];
+    const findPokemonIndex = initialArray.findIndex((p: IPokemon) => p.id === id);
+    if (findPokemonIndex > -1) {
+      initialArray.splice(findPokemonIndex, 1)
+      setPokemon(initialArray);
+    }
+  }
+
   return <div className="container row">
     <div className="col-12">
       <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
     </div>
-    {POKEMON.map((pokemon: IPokemon) =>
-      <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} type="Mine" /></div>)}
+    {pokemon.map((item: IPokemon) =>
+      <div key={item.id} className="col-6">
+        <PokemonCard pokemon={item} type="Mine" removeFct={removePokemon} />
+      </div>
+    )}
   </div>
 }
