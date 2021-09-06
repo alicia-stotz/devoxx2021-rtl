@@ -76,14 +76,22 @@ const TITLE_CONTENT: JSX.Element =
     <span className="text-secondary fw-lighter">findby, user event, async</span>
   </div>
 export const GameZone = () => {
+  const [pokeball, setPokeball] = React.useState<number>(0);
+
   return <div className="container row">
     <div className="col-12">
       <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
     </div>
     <div className="col-12 mb-3">
-      <ToolBar numberOfPokemon={MINE_POKEMON.length} />
+      <ToolBar
+        numberOfPokemon={MINE_POKEMON.length}
+        setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
+      />
     </div>
     {POKEMON.map((pokemon: IPokemon) =>
-      <div key={pokemon.id} className="col-6"><PokemonCard pokemon={pokemon} type="Grass" /></div>)}
+      <div key={pokemon.id} className="col-6">
+        <PokemonCard pokemon={pokemon} type="Grass" pokeball={pokeball > 0} />
+      </div>
+    )}
   </div>
 }

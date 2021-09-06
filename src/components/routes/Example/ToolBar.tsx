@@ -4,11 +4,18 @@ import AddIcon from '@material-ui/icons/Add';
 export interface IToolBarProps {
   numberOfPokemon: number;
   withFakePromise?: boolean;
+  setNumberOfPokeball?: (numberOfPokeball: number) => void;
 }
 
-export const ToolBar = ({ numberOfPokemon, withFakePromise }: IToolBarProps) => {
+export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball }: IToolBarProps) => {
   const [pokeball, setPokeball] = React.useState<number>(0);
   const [inputPokeball, setInputPokeball] = React.useState<number>(0);
+
+  React.useEffect(() => {
+    if (setNumberOfPokeball) {
+      setNumberOfPokeball(pokeball);
+    }
+  }, [pokeball, setNumberOfPokeball]);
 
   const typePokeballHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     setInputPokeball(parseInt(e.currentTarget.value, 10));
@@ -28,7 +35,6 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise }: IToolBarProps) => 
     const pokeballNumber = await fakePromise(pNumber);
     setPokeball(pokeball + pokeballNumber);
   }
-
 
   return <div className="tool-bar card px-3">
     <div className="d-flex justify-content-between py-2 align-items-center">
