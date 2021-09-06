@@ -19,31 +19,37 @@ const list: ISummaryList[] = [
     label: 'Introduction'
   },
   {
-    id: 'example',
-    link: '/example',
-    title: 'Example section',
-    label: 'Exemple',
+    id: 'examples',
+    link: '/examples',
+    title: 'Examples section',
+    label: 'Exemples',
     subSection: [
       {
         id: 'defaultPokemonCard',
-        link: '/example/default',
+        link: '/examples/default',
         title: 'Default Pokemon card',
         label: 'Card Pokemon',
       },
       {
         id: 'pokedex',
-        link: '/example/pokedex',
+        link: '/examples/pokedex',
         title: 'Pokedex',
         label: 'Pokedex',
       },
       {
         id: 'gameZone',
-        link: '/example/gameZone',
+        link: '/examples/gameZone',
         title: 'Zone de jeu',
         label: 'Game zone',
       }
     ]
-  }
+  },
+  {
+    id: 'sources',
+    link: '/sources',
+    title: 'Sources section',
+    label: 'Sources'
+  },
 ];
 
 export const SectionList = () => {

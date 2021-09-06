@@ -5,7 +5,8 @@ import { Navbar } from '../shared/Navbar';
 import { SectionList } from '../shared/SectionList';
 
 import { Introduction } from '../routes/Introduction/Introduction';
-import { Example } from '../routes/Example/Example';
+import { Examples } from '../routes/Examples/Examples';
+import { Sources } from '../routes/Sources/Sources';
 
 
 const App: React.FC = () => {
@@ -20,7 +21,8 @@ const App: React.FC = () => {
           <div className="col-9 py-4 bg-light">
             <Switch>
               <Route exact path="/" component={Introduction}></Route>
-              <Route path="/example" component={Example}></Route>
+              <Route path="/examples" component={Examples}></Route>
+              <Route path="/sources" component={Sources}></Route>
             </Switch>
           </div>
         </div>
