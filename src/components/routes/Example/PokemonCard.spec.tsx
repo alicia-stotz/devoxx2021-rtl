@@ -72,5 +72,18 @@ describe("Pokemon card component", () => {
       //expect(screen.getByRole('button', { name: "Show more information" })).toBeNull();
       expect(screen.queryByRole('button', { name: "Show more information" })).toBeNull();
     })
+  });
+
+  describe("Pokemon card button", () => {
+    it("Should display remove btn", () => {
+      render(<PokemonCard pokemon={defaultProps.pokemon} type="Mine" />);
+      expect(screen.getByRole('button', { name: "Remove Pokemon" })).toBeInTheDocument();
+    });
+    it("Should display add btn but disabled (no Pokeball)", () => {
+      render(<PokemonCard pokemon={defaultProps.pokemon} type="Grass" />);
+      const addButton = screen.getByRole('button', { name: "Add Pokemon" });
+      expect(addButton).toBeInTheDocument();
+      expect(addButton).toBeDisabled();
+    });
   })
 })

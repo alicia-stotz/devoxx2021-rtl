@@ -31,14 +31,14 @@ const SUMMARY_CONTENT: JSX.Element = <div>
         Rendre un composant{" "}
         <a href="https://testing-library.com/docs/react-testing-library/api#render">(reference)</a>
       </h6>
-      <span>RTL est utiliser pour interagire avec le composant comme un utilisateur le ferait</span>
+      <span>RTL est utilisée pour interagire avec le composant comme un utilisateur le ferait</span>
       <pre className="mt-3"><code>
         <mark>render(monComposant);</mark>
       </code></pre>
     </li>
     <li>
       <h6>
-        Acceder au composant{" "}
+        Acceder au composant et l'afficher{" "}
         <a href="https://testing-library.com/docs/queries/about#screen">(reference)</a></h6>
       <pre className="mt-3"><code>
         <mark>screen.debug();</mark>
