@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/devoxx2021-rtl/static/js/main.db125628.chunk.js",
-    "main.js.map": "/devoxx2021-rtl/static/js/main.db125628.chunk.js.map",
+    "main.js": "/devoxx2021-rtl/static/js/main.a51d842b.chunk.js",
+    "main.js.map": "/devoxx2021-rtl/static/js/main.a51d842b.chunk.js.map",
     "runtime-main.js": "/devoxx2021-rtl/static/js/runtime-main.2615a563.js",
     "runtime-main.js.map": "/devoxx2021-rtl/static/js/runtime-main.2615a563.js.map",
     "static/css/2.fb17aa6d.chunk.css": "/devoxx2021-rtl/static/css/2.fb17aa6d.chunk.css",
-    "static/js/2.e77d87a5.chunk.js": "/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js",
-    "static/js/2.e77d87a5.chunk.js.map": "/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js.map",
+    "static/js/2.401514ef.chunk.js": "/devoxx2021-rtl/static/js/2.401514ef.chunk.js",
+    "static/js/2.401514ef.chunk.js.map": "/devoxx2021-rtl/static/js/2.401514ef.chunk.js.map",
     "static/js/3.1533d18a.chunk.js": "/devoxx2021-rtl/static/js/3.1533d18a.chunk.js",
     "static/js/3.1533d18a.chunk.js.map": "/devoxx2021-rtl/static/js/3.1533d18a.chunk.js.map",
     "index.html": "/devoxx2021-rtl/index.html",
     "static/css/2.fb17aa6d.chunk.css.map": "/devoxx2021-rtl/static/css/2.fb17aa6d.chunk.css.map",
-    "static/js/2.e77d87a5.chunk.js.LICENSE.txt": "/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js.LICENSE.txt",
+    "static/js/2.401514ef.chunk.js.LICENSE.txt": "/devoxx2021-rtl/static/js/2.401514ef.chunk.js.LICENSE.txt",
     "static/media/queryTab.8efd99d8.png": "/devoxx2021-rtl/static/media/queryTab.8efd99d8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2615a563.js",
     "static/css/2.fb17aa6d.chunk.css",
-    "static/js/2.e77d87a5.chunk.js",
-    "static/js/main.db125628.chunk.js"
+    "static/js/2.401514ef.chunk.js",
+    "static/js/main.a51d842b.chunk.js"
   ]
 }
