@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface ISection {
   id: string;
@@ -75,25 +75,25 @@ export const SectionList = () => {
     {
       list.map((item: ISummaryList, indexList: number) =>
         <React.Fragment key={item.id}>
-          <a
-            href={item.link}
+          <Link
+            to={item.link}
             title={item.title}
             className={`list-group-item list-group-item-action${activeLink(item.link, 1) ? " list-group-item-secondary" : ""}${item.subSection ? " border-0" : ""}`}>
             {item.label}
 
-          </a>
+          </Link>
           {
             item.subSection ?
               <ul className="list-group list-group-flush">
                 {
                   item.subSection.map((section: ISection, index: number) =>
-                    <a
+                    <Link
                       key={`${item.id}-${section.id}`}
-                      href={section.link}
+                      to={section.link}
                       title={section.title}
                       className={`list-group-item fw-lighter px-4${activeLink(section.link, 2) ? ' text-primary' : ''}${item.subSection!.length > index + 1 ? " border-0" : (list.length > indexList + 1 ? " border-bottom" : "")}`}>
                       {section.label}
-                    </a>
+                    </Link>
                   )
                 }
 
