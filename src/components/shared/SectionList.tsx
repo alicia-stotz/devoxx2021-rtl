@@ -45,6 +45,12 @@ const list: ISummaryList[] = [
     ]
   },
   {
+    id: 'conclusion',
+    link: '/conclusion',
+    title: 'Conclusion section',
+    label: 'Conclusion'
+  },
+  {
     id: 'sources',
     link: '/sources',
     title: 'Sources section',

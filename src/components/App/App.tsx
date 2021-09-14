@@ -6,6 +6,7 @@ import { SectionList } from '../shared/SectionList';
 
 import { Introduction } from '../routes/Introduction/Introduction';
 import { Examples } from '../routes/Examples/Examples';
+import { Conclusion } from '../routes/Conclusion/Conclusion';
 import { Sources } from '../routes/Sources/Sources';
 
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             <Switch>
               <Route exact path="/" component={Introduction}></Route>
               <Route path="/examples" component={Examples}></Route>
+              <Route exact path="/conclusion" component={Conclusion}></Route>
               <Route path="/sources" component={Sources}></Route>
             </Switch>
           </div>
