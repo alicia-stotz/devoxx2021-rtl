@@ -50,13 +50,10 @@ describe("Pokemon card component", () => {
       expect(screen.getByText('55')).toBeInTheDocument();
     });
 
-    // @TODO: Snippet "console.log(screen.getByRole("")
-    // @TODO: Snippet "expect(screen.getByRole('link')).toBeInTheDocument();"
     it("Should display button information", () => {
       expect(screen.getByRole('link')).toBeInTheDocument();
     });
 
-    // @TODO: Snippet "expect(screen.getByRole('button', {name: "Show more information"})).toBeInTheDocument();"
     it("Should display more information button", () => {
       expect(screen.getByRole('button', { name: "Show more information" })).toBeInTheDocument();
     })
@@ -67,18 +64,17 @@ describe("Pokemon card component", () => {
       render(<PokemonCard {...defaultPropsWithoutTypes} />);
     });
 
-    // @TODO: Snippet "expect(screen.getByRole('button', {name: "Show more information"})).toBeNull();"
     it("Should not display more information button", () => {
-      //expect(screen.getByRole('button', { name: "Show more information" })).toBeNull();
-      expect(screen.queryByRole('button', { name: "Show more information" })).toBeNull();
+      expect(screen.queryByRole('button', { name: 'Show more information' })).toBeNull();
     })
   });
 
-  describe("Pokemon card button", () => {
+  xdescribe("Pokemon card button", () => {
     it("Should display remove btn", () => {
       render(<PokemonCard pokemon={defaultProps.pokemon} type="Mine" />);
       expect(screen.getByRole('button', { name: "Remove Pokemon" })).toBeInTheDocument();
     });
+    // @TODO: in comment or snippet
     it("Should display add btn but disabled (no Pokeball)", () => {
       render(<PokemonCard pokemon={defaultProps.pokemon} type="Grass" />);
       const addButton = screen.getByRole('button', { name: "Add Pokemon" });

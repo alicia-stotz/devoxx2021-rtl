@@ -1,0 +1,30 @@
+{
+  "RTL getBy": {
+    "prefix": "rtl.getBy",
+    "body": [
+      "expect(screen.getByText('test')).toBeInTheDocument();"
+    ],
+    "description": "First example getBy"
+  },
+  "RTL console log getByRole": {
+    "prefix": "rtl.cl.role",
+    "body": [
+      "screen.getByRole('');"
+    ],
+    "description": "Console.log getByRole output"
+  },
+  "RTL getByRole": {
+    "prefix": "rtl.role",
+    "body": [
+      "expect(screen.getByRole('link')).toBeInTheDocument();"
+    ],
+    "description": "First example getByRole"
+  },
+  "RTL queryByRole": {
+    "prefix": "rtl.queryBy",
+    "body": [
+      "expect(screen.queryByRole('button', { name:'Show more information' })).toBeNull();"
+    ],
+    "description": "First example queryByRole"
+  }
+}
