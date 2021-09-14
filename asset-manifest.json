@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/alicia-stotz/devoxx2021-rtl/static/js/main.47a18ce3.chunk.js",
+    "main.js.map": "/alicia-stotz/devoxx2021-rtl/static/js/main.47a18ce3.chunk.js.map",
+    "runtime-main.js": "/alicia-stotz/devoxx2021-rtl/static/js/runtime-main.4201ef68.js",
+    "runtime-main.js.map": "/alicia-stotz/devoxx2021-rtl/static/js/runtime-main.4201ef68.js.map",
+    "static/css/2.fb17aa6d.chunk.css": "/alicia-stotz/devoxx2021-rtl/static/css/2.fb17aa6d.chunk.css",
+    "static/js/2.e77d87a5.chunk.js": "/alicia-stotz/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js",
+    "static/js/2.e77d87a5.chunk.js.map": "/alicia-stotz/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js.map",
+    "static/js/3.1533d18a.chunk.js": "/alicia-stotz/devoxx2021-rtl/static/js/3.1533d18a.chunk.js",
+    "static/js/3.1533d18a.chunk.js.map": "/alicia-stotz/devoxx2021-rtl/static/js/3.1533d18a.chunk.js.map",
+    "index.html": "/alicia-stotz/devoxx2021-rtl/index.html",
+    "static/css/2.fb17aa6d.chunk.css.map": "/alicia-stotz/devoxx2021-rtl/static/css/2.fb17aa6d.chunk.css.map",
+    "static/js/2.e77d87a5.chunk.js.LICENSE.txt": "/alicia-stotz/devoxx2021-rtl/static/js/2.e77d87a5.chunk.js.LICENSE.txt",
+    "static/media/queryTab.8efd99d8.png": "/alicia-stotz/devoxx2021-rtl/static/media/queryTab.8efd99d8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4201ef68.js",
+    "static/css/2.fb17aa6d.chunk.css",
+    "static/js/2.e77d87a5.chunk.js",
+    "static/js/main.47a18ce3.chunk.js"
+  ]
+}
