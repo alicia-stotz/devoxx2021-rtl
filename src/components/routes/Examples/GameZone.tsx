@@ -55,25 +55,12 @@ const SUMMARY_CONTENT: JSX.Element = <div>
         <mark>await screen.findBy(...);</mark>
       </code></pre>
     </li>
-    <li>
-      <h6>
-        Fonctions assertive{" "}
-        <a href="https://testing-library.com/docs/queries/about#types-of-queries">(reference)</a>
-      </h6>
-      <span>RTL enrichit les fonctions d'assertion déjà disponible dans Jest.</span>
-      <ul>
-        <li>.toBeDisabled</li>
-        <li>.toBeInvalid</li>
-        <li>.toHaveClass</li>
-        <li>...</li>
-      </ul>
-    </li>
   </ul>
 </div>
 const TITLE_CONTENT: JSX.Element =
   <div>
     <h3 className="mb-0">Zone de jeu</h3>
-    <span className="text-secondary fw-lighter">findby, user event, async</span>
+    <span className="text-secondary fw-lighter">user event, findBy, async</span>
   </div>
 export const GameZone = () => {
   const [pokeball, setPokeball] = React.useState<number>(0);
