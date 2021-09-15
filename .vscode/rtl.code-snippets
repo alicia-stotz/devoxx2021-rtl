@@ -26,5 +26,12 @@
       "expect(screen.queryByRole('button', { name:'Show more information' })).toBeNull();"
     ],
     "description": "First example queryByRole"
+  },
+  "RTL finBy": {
+    "prefix": "rtl.findBy",
+    "body": [
+      "const newPokeballNumber = await screen.findByTitle('Number of pokeball');"
+    ],
+    "description": "First example queryByRole"
   }
 }
