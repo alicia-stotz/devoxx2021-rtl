@@ -1,9 +1,7 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { IPokemonCardProps, PokemonCard } from "./PokemonCard";
-
-afterEach(cleanup);
 
 const defaultProps: IPokemonCardProps = {
   pokemon: {
@@ -40,14 +38,13 @@ describe("Pokemon card component", () => {
     });
 
     it("Should display card", () => {
-      //screen.debug();
       expect(screen.getByText('test')).toBeInTheDocument();
     });
 
     it("Should display table information", () => {
-      expect(screen.getByText('15')).toBeInTheDocument();
-      expect(screen.getByText('9')).toBeInTheDocument();
-      expect(screen.getByText('55')).toBeInTheDocument();
+      expect(screen.getByText("15")).toBeInTheDocument();
+      expect(screen.getByText("9")).toBeInTheDocument();
+      expect(screen.getByText("55")).toBeInTheDocument();
     });
 
     it("Should display button information", () => {
@@ -69,12 +66,12 @@ describe("Pokemon card component", () => {
     })
   });
 
-  xdescribe("Pokemon card button", () => {
+  describe("Pokemon card button", () => {
     it("Should display remove btn", () => {
       render(<PokemonCard pokemon={defaultProps.pokemon} type="Mine" />);
       expect(screen.getByRole('button', { name: "Remove Pokemon" })).toBeInTheDocument();
     });
-    // @TODO: in comment or snippet
+
     it("Should display add btn but disabled (no Pokeball)", () => {
       render(<PokemonCard pokemon={defaultProps.pokemon} type="Grass" />);
       const addButton = screen.getByRole('button', { name: "Add Pokemon" });
