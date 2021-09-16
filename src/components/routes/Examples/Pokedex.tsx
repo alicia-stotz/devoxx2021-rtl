@@ -39,20 +39,6 @@ const POKEMON: IPokemon[] = [
         url: "https://pokeapi.co/api/v2/type/3/"
       }
     ]
-  },
-  {
-    id: 10,
-    name: "caterpie",
-    height: 3,
-    order: 14,
-    weight: 29,
-    base_experience: 39,
-    types: [
-      {
-        name: "bug",
-        url: "https://pokeapi.co/api/v2/type/7/"
-      }
-    ]
   }
 ];
 
