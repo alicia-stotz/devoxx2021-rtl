@@ -10,7 +10,7 @@ describe("Pokedex page", () => {
     });
 
     it("Should display 3 cards", () => {
-      const cards = screen.getAllByTitle("Pokemon card: Pokedex");
+      const cards = screen.getAllByText("Pokedex");
       expect(cards).toHaveLength(3);
     });
   });
