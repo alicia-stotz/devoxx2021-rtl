@@ -100,6 +100,30 @@
       "})",
       "});",
       "});"
-    ]
+    ],
+    "description": "Prepare Pokemon card test"
+  },
+  "RTL prepare Pokedex test": {
+    "prefix": "rtl.pokedex.test",
+    "body": [
+      "import React from \"react\";",
+      "import { render, screen } from \"@testing-library/react\";",
+      "",
+      "import { Pokedex } from \"./Pokedex\";",
+      "",
+      "xdescribe(\"Pokedex page\", () => {",
+      "describe(\"Default page\", () => {",
+      "beforeEach(() => {",
+      "render(<Pokedex />);",
+      "});",
+      "",
+      "it(\"Should display 3 cards\", () => {",
+      "const cards = screen.getAllByTitle(\"Pokemon card: Pokedex\");",
+      "expect(cards).toHaveLength(3);",
+      "});",
+      "});",
+      "});"
+    ],
+    "description": "Prepare Pokedex test"
   }
 }

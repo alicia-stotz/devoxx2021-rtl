@@ -1,9 +1,7 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
-import { Pokedex } from './Pokedex';
-
-afterEach(cleanup);
+import { Pokedex } from "./Pokedex";
 
 describe("Pokedex page", () => {
   describe("Default page", () => {
