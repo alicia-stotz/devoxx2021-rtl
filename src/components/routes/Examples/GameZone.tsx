@@ -4,7 +4,44 @@ import { IPokemon, PokemonCard } from './PokemonCard';
 import { ToolBar } from './ToolBar';
 import { SummaryButton } from '../../shared/SummaryButton';
 
-const MINE_POKEMON: IPokemon[] = [];
+const MINE_POKEMON: IPokemon[] = [
+  {
+    id: 1,
+    name: "bulbasaur",
+    height: 7,
+    order: 1,
+    weight: 69,
+    base_experience: 64,
+    types: [
+      {
+        name: "grass",
+        url: "https://pokeapi.co/api/v2/type/12/"
+      },
+      {
+        name: "poison",
+        url: "https://pokeapi.co/api/v2/type/4/"
+      }
+    ]
+  },
+  {
+    id: 16,
+    name: "pidgey",
+    height: 3,
+    order: 21,
+    weight: 18,
+    base_experience: 50,
+    types: [
+      {
+        name: "normal",
+        url: "https://pokeapi.co/api/v2/type/1/"
+      },
+      {
+        name: "flying",
+        url: "https://pokeapi.co/api/v2/type/3/"
+      }
+    ]
+  }
+];
 const POKEMON: IPokemon[] = [
   {
     id: 10,
