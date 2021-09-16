@@ -16,7 +16,7 @@
   "RTL getByRole": {
     "prefix": "rtl.role",
     "body": [
-      "expect(screen.getByRole('link')).toBeInTheDocument();"
+      "expect(screen.getByRole('button', { name: \"Show more information\" })).toBeInTheDocument();"
     ],
     "description": "First example getByRole"
   },
@@ -96,7 +96,7 @@
       "});",
       "",
       "xit(\"Should not display more information button\", () => {",
-      "expect(screen.queryByRole(\"button\", { name: \"Show more information\" })).toBeNull();",
+      "expect(screen.getByRole(\"button\", { name: \"Show more information\" })).toBeNull();",
       "})",
       "});",
       "});"
@@ -127,7 +127,7 @@
     "description": "Prepare Pokedex test"
   },
   "RTL prepare Toolbar test": {
-    "prefix": "rtl.gameZone.test",
+    "prefix": "rtl.toolbar.test",
     "body": [
       "import React from \"react\";",
       "import { render, screen, fireEvent } from \"@testing-library/react\";",
@@ -182,7 +182,7 @@
       "});",
       "});",
       "",
-      "describe(\"Event and actions (async)\", () => {",
+      "xdescribe(\"Event and actions (async)\", () => {",
       "it(\"Should increment pokeball number if user type something in free input\", async () => {",
       "render(<ToolBar {...defaultPropsWithFakePromis} />);",
       "",
@@ -196,7 +196,7 @@
       ")",
       ");",
       "",
-      "const newPokeballNumber = await screen.findByTitle(\"Number of pokeball\");",
+      "const newPokeballNumber = await screen.getByTitle(\"Number of pokeball\");",
       "expect(screen.getByDisplayValue(\"6\")).toBeInTheDocument();",
       "expect(newPokeballNumber.textContent).toEqual(\"Pokeball: 6\");",
       "});",
