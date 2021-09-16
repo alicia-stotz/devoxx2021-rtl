@@ -53,7 +53,7 @@ describe("Pokemon card component", () => {
 
     it("Should display more information button", () => {
       expect(screen.getByRole('button', { name: "Show more information" })).toBeInTheDocument();
-    })
+    });
   });
 
   describe("Pokemon card without types", () => {
@@ -63,7 +63,7 @@ describe("Pokemon card component", () => {
 
     it("Should not display more information button", () => {
       expect(screen.queryByRole('button', { name: 'Show more information' })).toBeNull();
-    })
+    });
   });
 
   describe("Pokemon card button", () => {
@@ -78,5 +78,5 @@ describe("Pokemon card component", () => {
       expect(addButton).toBeInTheDocument();
       expect(addButton).toBeDisabled();
     });
-  })
-})
+  });
+});
