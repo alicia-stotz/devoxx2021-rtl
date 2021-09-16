@@ -118,7 +118,7 @@
       "});",
       "",
       "it(\"Should display 3 cards\", () => {",
-      "const cards = screen.getAllByTitle(\"Pokemon card: Pokedex\");",
+      "const cards = screen.getByText(\"Pokedex\");",
       "expect(cards).toHaveLength(3);",
       "});",
       "});",
