@@ -1,5 +1,3 @@
-import React from 'react';
-
 import queryTab from './queryTab.png';
 
 export const Conclusion = () => {

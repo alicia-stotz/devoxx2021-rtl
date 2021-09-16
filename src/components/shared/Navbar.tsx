@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -9,6 +8,7 @@ export const Navbar = () => {
       <a
         href="https://github.com/alicia-stotz/devoxx2021-rtl"
         rel="noreferrer"
+        title="GitHub repository link"
         target="_blank">
         <GitHubIcon />
       </a>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IPokemon, PokemonCard } from './PokemonCard';
 import { SummaryButton } from '../../shared/SummaryButton';
 
