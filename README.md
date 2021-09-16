@@ -2,7 +2,7 @@
 
 Little examples for begginner in [React testing library](https://testing-library.com/).\
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-[Bootstrap V5](https://getbootstrap.com/docs/5.1/getting-started/introduction/) has been integrated.\
+[Bootstrap V5](https://getbootstrap.com/docs/5.1/getting-started/introduction/) has been integrated.
 
 ## Available Scripts
 
