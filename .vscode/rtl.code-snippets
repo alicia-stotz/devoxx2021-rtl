@@ -37,7 +37,6 @@
   "RTL prepare Pokemon Card test": {
     "prefix": "rtl.pokemonCard.test",
     "body": [
-      "import React from \"react\";",
       "import { render, screen } from \"@testing-library/react\";",
       "",
       "import { IPokemonCardProps, PokemonCard } from \"./PokemonCard\";",
@@ -106,7 +105,6 @@
   "RTL prepare Pokedex test": {
     "prefix": "rtl.pokedex.test",
     "body": [
-      "import React from \"react\";",
       "import { render, screen } from \"@testing-library/react\";",
       "",
       "import { Pokedex } from \"./Pokedex\";",
@@ -117,9 +115,9 @@
       "render(<Pokedex />);",
       "});",
       "",
-      "it(\"Should display 3 cards\", () => {",
+      "it(\"Should display 2 cards\", () => {",
       "const cards = screen.getByText(\"Pokedex\");",
-      "expect(cards).toHaveLength(3);",
+      "expect(cards).toHaveLength(2);",
       "});",
       "});",
       "});"
@@ -129,7 +127,6 @@
   "RTL prepare Toolbar test": {
     "prefix": "rtl.toolbar.test",
     "body": [
-      "import React from \"react\";",
       "import { render, screen, fireEvent } from \"@testing-library/react\";",
       "import userEvent from \"@testing-library/user-event\";",
       "",
@@ -196,7 +193,7 @@
       ")",
       ");",
       "",
-      "const newPokeballNumber = await screen.getByTitle(\"Number of pokeball\");",
+      "const newPokeballNumber = screen.getByTitle(\"Number of pokeball\");",
       "expect(screen.getByDisplayValue(\"6\")).toBeInTheDocument();",
       "expect(newPokeballNumber.textContent).toEqual(\"Pokeball: 6\");",
       "});",
