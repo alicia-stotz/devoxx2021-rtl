@@ -7,17 +7,21 @@ export const Introduction = () => {
       <p className="mb-4">
         <ArrowForwardIcon fontSize="small" /> React Testing Library (RTL) par Kent C. Dodds.
       </p>
-      <p className="mb-1">
+      <p className="mb-2">
         <ArrowForwardIcon fontSize="small" /> Experience utilisateur.
       </p>
-      <figure className="mb-4">
-        <blockquote className="blockquote">
-          <p>The more your tests resemble the way your software is used, the more confidence they can give you.</p>
-        </blockquote>
-        <figcaption className="blockquote-footer">
-          Guiding Principles in <cite title="Source Title">React Testing Library web site</cite>
-        </figcaption>
-      </figure>
+      <div className="card mb-3">
+        <div className="card-body">
+          <figure className="">
+            <blockquote className="blockquote">
+              <p>The more your tests resemble the way your software is used, the more confidence they can give you.</p>
+            </blockquote>
+            <figcaption className="blockquote-footer">
+              Guiding Principles in <cite title="Source Title">React Testing Library web site</cite>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
       <p className="mb-4">
         <ArrowForwardIcon fontSize="small" />N'encourage pas à tester les détails d'implémentation.
       </p>
