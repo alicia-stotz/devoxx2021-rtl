@@ -12,11 +12,11 @@ export const Introduction = () => {
       </p>
       <div className="card mb-3">
         <div className="card-body">
-          <figure className="">
+          <figure className="mb-0">
             <blockquote className="blockquote">
               <p>The more your tests resemble the way your software is used, the more confidence they can give you.</p>
             </blockquote>
-            <figcaption className="blockquote-footer">
+            <figcaption className="blockquote-footer mb-0">
               Guiding Principles in <cite title="Source Title">React Testing Library web site</cite>
             </figcaption>
           </figure>
