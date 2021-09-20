@@ -8,9 +8,9 @@ describe("Pokedex page", () => {
       render(<Pokedex />);
     });
 
-    it("Should display 3 cards", () => {
+    it("Should display 2 cards", () => {
       const cards = screen.getAllByText("Pokedex");
-      expect(cards).toHaveLength(3);
+      expect(cards).toHaveLength(2);
     });
   });
 });

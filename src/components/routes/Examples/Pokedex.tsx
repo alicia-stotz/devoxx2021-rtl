@@ -76,7 +76,7 @@ const SUMMARY_CONTENT: JSX.Element = <div>
 </div>
 const TITLE_CONTENT: JSX.Element =
   <div>
-    <h3 className="mb-0">Pokedex</h3>
+    <h3 className="mb-0">Mon Pokedex</h3>
     <span className="text-secondary fw-lighter">getAll, type de recherche</span>
   </div>
 export const Pokedex = () => {
