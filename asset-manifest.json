@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/devoxx2021-rtl/static/js/main.75b89f86.chunk.js",
-    "main.js.map": "/devoxx2021-rtl/static/js/main.75b89f86.chunk.js.map",
+    "main.js": "/devoxx2021-rtl/static/js/main.af3c7206.chunk.js",
+    "main.js.map": "/devoxx2021-rtl/static/js/main.af3c7206.chunk.js.map",
     "runtime-main.js": "/devoxx2021-rtl/static/js/runtime-main.992cea4e.js",
     "runtime-main.js.map": "/devoxx2021-rtl/static/js/runtime-main.992cea4e.js.map",
     "static/css/2.fb17aa6d.chunk.css": "/devoxx2021-rtl/static/css/2.fb17aa6d.chunk.css",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.992cea4e.js",
     "static/css/2.fb17aa6d.chunk.css",
     "static/js/2.42a06e80.chunk.js",
-    "static/js/main.75b89f86.chunk.js"
+    "static/js/main.af3c7206.chunk.js"
   ]
 }
