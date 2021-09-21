@@ -2,6 +2,8 @@ import React from 'react';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
+import { IPokemon, IPokemonType } from '../../../contexts/pokedex.context';
+
 export interface IPokemonCardProps {
   pokemon: IPokemon;
   type?: "Mine" | "Grass";
