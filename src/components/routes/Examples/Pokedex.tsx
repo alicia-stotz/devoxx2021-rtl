@@ -1,46 +1,9 @@
 import React from 'react';
 
-import { IPokemon, PokemonCard } from './PokemonCard';
+import { PokemonCard } from './PokemonCard';
 import { SummaryButton } from '../../shared/SummaryButton';
 
-const POKEMON: IPokemon[] = [
-  {
-    id: 1,
-    name: "bulbasaur",
-    height: 7,
-    order: 1,
-    weight: 69,
-    base_experience: 64,
-    types: [
-      {
-        name: "grass",
-        url: "https://pokeapi.co/api/v2/type/12/"
-      },
-      {
-        name: "poison",
-        url: "https://pokeapi.co/api/v2/type/4/"
-      }
-    ]
-  },
-  {
-    id: 16,
-    name: "pidgey",
-    height: 3,
-    order: 21,
-    weight: 18,
-    base_experience: 50,
-    types: [
-      {
-        name: "normal",
-        url: "https://pokeapi.co/api/v2/type/1/"
-      },
-      {
-        name: "flying",
-        url: "https://pokeapi.co/api/v2/type/3/"
-      }
-    ]
-  }
-];
+import { PokedexContext, IPokemon } from '../../../contexts/pokedex.context';
 
 const SUMMARY_CONTENT: JSX.Element = <div>
   <ul>
@@ -80,23 +43,14 @@ const TITLE_CONTENT: JSX.Element =
     <span className="text-secondary fw-lighter">getAll, type de recherche</span>
   </div>
 export const Pokedex = () => {
-  const [pokemon, setPokemon] = React.useState<IPokemon[]>(POKEMON);
-
-  const removePokemon = (id: number) => {
-    const initialArray = [...pokemon];
-    const findPokemonIndex = initialArray.findIndex((p: IPokemon) => p.id === id);
-    if (findPokemonIndex > -1) {
-      initialArray.splice(findPokemonIndex, 1)
-      setPokemon(initialArray);
-    }
-  }
+  const { pokemon, removePokemon } = React.useContext(PokedexContext);
 
   return <div className="container row">
     <div className="col-12">
       <SummaryButton title={TITLE_CONTENT} content={SUMMARY_CONTENT} />
     </div>
     {pokemon.map((item: IPokemon) =>
-      <div key={item.id} className="col-6">
+      <div key={item.id} className="col-12 col-lg-6">
         <PokemonCard pokemon={item} type="Mine" removeFct={removePokemon} />
       </div>
     )}

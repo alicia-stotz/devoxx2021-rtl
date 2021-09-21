@@ -2,21 +2,6 @@ import React from 'react';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-export interface IPokemonType {
-  name: string;
-  url: string;
-}
-
-export interface IPokemon {
-  id: number;
-  name: string;
-  height: number;
-  order: number;
-  weight: number;
-  base_experience: number;
-  types?: IPokemonType[];
-}
-
 export interface IPokemonCardProps {
   pokemon: IPokemon;
   type?: "Mine" | "Grass";

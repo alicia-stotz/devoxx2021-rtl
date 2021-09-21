@@ -1,63 +1,25 @@
 import React from 'react';
 
-import { IPokemon, PokemonCard } from './PokemonCard';
+import { PokedexContext, IPokemon } from '../../../contexts/pokedex.context';
+
+import { PokemonCard } from './PokemonCard';
 import { ToolBar } from './ToolBar';
 import { SummaryButton } from '../../shared/SummaryButton';
 
-const MINE_POKEMON: IPokemon[] = [
-  {
-    id: 1,
-    name: "bulbasaur",
-    height: 7,
-    order: 1,
-    weight: 69,
-    base_experience: 64,
-    types: [
-      {
-        name: "grass",
-        url: "https://pokeapi.co/api/v2/type/12/"
-      },
-      {
-        name: "poison",
-        url: "https://pokeapi.co/api/v2/type/4/"
-      }
-    ]
-  },
-  {
-    id: 16,
-    name: "pidgey",
-    height: 3,
-    order: 21,
-    weight: 18,
-    base_experience: 50,
-    types: [
-      {
-        name: "normal",
-        url: "https://pokeapi.co/api/v2/type/1/"
-      },
-      {
-        name: "flying",
-        url: "https://pokeapi.co/api/v2/type/3/"
-      }
-    ]
-  }
-];
-const POKEMON: IPokemon[] = [
-  {
-    id: 10,
-    name: "caterpie",
-    height: 3,
-    order: 14,
-    weight: 29,
-    base_experience: 39,
-    types: [
-      {
-        name: "bug",
-        url: "https://pokeapi.co/api/v2/type/7/"
-      }
-    ]
-  }
-]
+const POKEMON: IPokemon = {
+  id: 10,
+  name: "caterpie",
+  height: 3,
+  order: 14,
+  weight: 29,
+  base_experience: 39,
+  types: [
+    {
+      name: "bug",
+      url: "https://pokeapi.co/api/v2/type/7/"
+    }
+  ]
+}
 
 const SUMMARY_CONTENT: JSX.Element = <div>
   <ul>
@@ -101,6 +63,15 @@ const TITLE_CONTENT: JSX.Element =
   </div>
 export const GameZone = () => {
   const [pokeball, setPokeball] = React.useState<number>(0);
+  const { pokemon, addPokemon } = React.useContext(PokedexContext);
+  const [freePokemon, setFreePokemon] = React.useState<IPokemon | null>(POKEMON);
+
+  const addFct = () => {
+    if (Date.now() % 2 === 0 && freePokemon !== null) {
+      addPokemon(freePokemon);
+      setFreePokemon(null)
+    }
+  }
 
   return <div className="container row">
     <div className="col-12">
@@ -108,14 +79,20 @@ export const GameZone = () => {
     </div>
     <div className="col-12 mb-3">
       <ToolBar
-        numberOfPokemon={MINE_POKEMON.length}
+        numberOfPokemon={pokemon.length}
         setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
       />
     </div>
-    {POKEMON.map((pokemon: IPokemon) =>
-      <div key={pokemon.id} className="col-6">
-        <PokemonCard pokemon={pokemon} type="Grass" pokeball={pokeball > 0} />
-      </div>
-    )}
+    {
+      freePokemon ?
+        <div className="col-12 col-lg-6">
+          <PokemonCard
+            pokemon={freePokemon}
+            type="Grass"
+            pokeball={pokeball > 0}
+            addFct={addFct} />
+        </div>
+        : null
+    }
   </div>
 }
