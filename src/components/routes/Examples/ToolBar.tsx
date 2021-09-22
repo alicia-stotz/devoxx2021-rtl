@@ -3,19 +3,13 @@ import AddIcon from '@material-ui/icons/Add';
 
 export interface IToolBarProps {
   numberOfPokemon: number;
+  numberOfPokeball: number;
   withFakePromise?: boolean;
-  setNumberOfPokeball?: (numberOfPokeball: number) => void;
+  setNumberOfPokeball: (pokeball: number) => void;
 }
 
-export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball }: IToolBarProps) => {
-  const [pokeball, setPokeball] = React.useState<number>(0);
+export const ToolBar = ({ numberOfPokemon, numberOfPokeball, withFakePromise, setNumberOfPokeball }: IToolBarProps) => {
   const [inputPokeball, setInputPokeball] = React.useState<number>(0);
-
-  React.useEffect(() => {
-    if (setNumberOfPokeball) {
-      setNumberOfPokeball(pokeball);
-    }
-  }, [pokeball, setNumberOfPokeball]);
 
   const typePokeballHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     setInputPokeball(parseInt(e.currentTarget.value, 10));
@@ -33,7 +27,7 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball 
 
   const onClickWithPromise = async (pNumber: number) => {
     const pokeballNumber = await fakePromise(pNumber);
-    setPokeball(pokeball + pokeballNumber);
+    setNumberOfPokeball(numberOfPokeball + pokeballNumber);
   }
 
   return <div className="tool-bar card px-3">
@@ -44,7 +38,7 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball 
         </span>
         <span className="text-secondary">|</span>
         <span className="ms-2" title="Number of pokeball">
-          Pokeball: <strong>{pokeball}</strong>
+          Pokeball: <strong>{numberOfPokeball}</strong>
         </span>
       </div>
       <div className="input-group w-50">
@@ -64,7 +58,7 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball 
           title="Add number of Pokeball write in input"
           disabled={!inputPokeball}
           onClick={() => inputPokeball ?
-            (withFakePromise ? onClickWithPromise(inputPokeball) : setPokeball(pokeball + inputPokeball))
+            (withFakePromise ? onClickWithPromise(inputPokeball) : setNumberOfPokeball(numberOfPokeball + inputPokeball))
             : {}}
           type="button">
           Ajouter les Pokeball
@@ -72,7 +66,7 @@ export const ToolBar = ({ numberOfPokemon, withFakePromise, setNumberOfPokeball 
         <button
           className="btn btn-outline-secondary btn-sm"
           title="Add one Pokeball"
-          onClick={() => setPokeball(pokeball + 1)}
+          onClick={() => setNumberOfPokeball(numberOfPokeball + 1)}
           type="button">
           <AddIcon fontSize="small" />
         </button>

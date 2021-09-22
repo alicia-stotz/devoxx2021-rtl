@@ -21,6 +21,10 @@ const POKEMON: IPokemon = {
   ]
 }
 
+export interface IGameZoneProps {
+  withFakePromise?: boolean
+}
+
 const SUMMARY_CONTENT: JSX.Element = <div>
   <ul>
     <li>
@@ -61,7 +65,7 @@ const TITLE_CONTENT: JSX.Element =
     <h3 className="mb-0">Zone de jeu</h3>
     <span className="text-secondary fw-lighter">user event, findBy, async</span>
   </div>
-export const GameZone = () => {
+export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
   const [pokeball, setPokeball] = React.useState<number>(0);
   const { pokemon, addPokemon } = React.useContext(PokedexContext);
   const [freePokemon, setFreePokemon] = React.useState<IPokemon | null>(POKEMON);
@@ -69,8 +73,9 @@ export const GameZone = () => {
   const addFct = () => {
     if (Date.now() % 2 === 0 && freePokemon !== null) {
       addPokemon(freePokemon);
-      setFreePokemon(null)
+      setFreePokemon(null);
     }
+    setPokeball(pokeball - 1);
   }
 
   return <div className="container row">
@@ -79,6 +84,8 @@ export const GameZone = () => {
     </div>
     <div className="col-12 mb-3">
       <ToolBar
+        withFakePromise={withFakePromise}
+        numberOfPokeball={pokeball}
         numberOfPokemon={pokemon.length}
         setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
       />
