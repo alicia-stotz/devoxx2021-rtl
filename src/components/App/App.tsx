@@ -1,8 +1,9 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import { Navbar } from '../shared/Navbar';
 import { SectionList } from '../shared/SectionList';
+import { TwitterLink } from '../shared/TwitterLink';
 
 import { Home } from '../routes/Home/Home';
 import { Introduction } from '../routes/Introduction/Introduction';
@@ -13,6 +14,8 @@ import { PokedexProvider } from '../../contexts/pokedex.context';
 
 
 const App: React.FC = () => {
+  const location = useLocation();
+
   return (
     <PokedexProvider>
       <div className="App" style={{ height: '100vh' }}>
@@ -29,6 +32,7 @@ const App: React.FC = () => {
               <Route path="/conclusion" component={Conclusion}></Route>
               <Route path="/sources" component={Sources}></Route>
             </Switch>
+            {location.pathname !== "/" ? <TwitterLink /> : null}
           </div>
         </div>
       </div>
