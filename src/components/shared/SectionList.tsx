@@ -14,7 +14,7 @@ interface ISummaryList extends ISection {
 const list: ISummaryList[] = [
   {
     id: 'introduction',
-    link: '/',
+    link: '/introduction',
     title: 'Introduction section',
     label: 'Introduction'
   },

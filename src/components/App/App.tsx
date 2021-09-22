@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Navbar } from '../shared/Navbar';
 import { SectionList } from '../shared/SectionList';
 
+import { Home } from '../routes/Home/Home';
 import { Introduction } from '../routes/Introduction/Introduction';
 import { Examples } from '../routes/Examples/Examples';
 import { Conclusion } from '../routes/Conclusion/Conclusion';
@@ -22,7 +23,8 @@ const App: React.FC = () => {
           </div>
           <div className="col-9 py-4 bg-light">
             <Switch>
-              <Route exact path="/" component={Introduction}></Route>
+              <Route exact path="/" component={Home}></Route>
+              <Route exact path="/introduction" component={Introduction}></Route>
               <Route path="/examples" component={Examples}></Route>
               <Route path="/conclusion" component={Conclusion}></Route>
               <Route path="/sources" component={Sources}></Route>
