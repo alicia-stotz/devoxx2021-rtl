@@ -36,6 +36,17 @@ export const POKEMON: IPokemon[] = [
   }
 ];
 
+export const POKEMON_WITHOUT_TYPE: IPokemon[] = [
+  {
+    id: 20,
+    name: "raticate",
+    height: 7,
+    order: 27,
+    weight: 185,
+    base_experience: 145,
+  }
+];
+
 export const POKEDEX: IPokemon[] = [
   {
     id: 1,

@@ -34,21 +34,12 @@ const SUMMARY_CONTENT: JSX.Element = <div>
         <mark>screen.getByRole(...);</mark>
       </code></pre>
     </li>
-    <li className="mt-3">
-      <h6>
-        Chercher un élément{" "}
-        <a href="https://testing-library.com/docs/queries/about#types-of-queries">(reference)</a>
-      </h6>
-      <pre className="mt-3"><code>
-        <mark>screen.queryByText(...);</mark>
-      </code></pre>
-    </li>
   </ul>
 </div>
 const TITLE_CONTENT: JSX.Element =
   <div>
     <h3 className="mb-0">Card Pokemon</h3>
-    <span className="text-secondary fw-lighter">getBy, queryBy</span>
+    <span className="text-secondary fw-lighter">render, screen, getBy</span>
   </div>
 export const DefaultPokemonCard = () => {
   return <div className="container row">

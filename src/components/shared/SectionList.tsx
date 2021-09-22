@@ -28,7 +28,13 @@ const list: ISummaryList[] = [
         id: 'defaultPokemonCard',
         link: '/examples/default',
         title: 'Default Pokemon card',
-        label: 'Card Pokemon',
+        label: 'Card Pokemon - Part 1',
+      },
+      {
+        id: 'pokemonCardWithoutType',
+        link: '/examples/withoutType',
+        title: 'Pokemon card without type',
+        label: 'Card Pokemon - Part 2',
       },
       {
         id: 'pokedex',
