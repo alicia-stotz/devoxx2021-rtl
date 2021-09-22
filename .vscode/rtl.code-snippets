@@ -99,30 +99,21 @@
     ],
     "description": "Prepare Pokedex test"
   },
-  "RTL prepare Toolbar test": {
-    "prefix": "rtl.toolbar.test",
+  "RTL prepare GameZone test": {
+    "prefix": "rtl.gameZone.test",
     "body": [
       "import { render, screen, fireEvent } from \"@testing-library/react\";",
       "import userEvent from \"@testing-library/user-event\";",
       "",
-      "import { ToolBar, IToolBarProps } from \"./ToolBar\";",
+      "import { GameZone } from \"./GameZone\";",
       "",
-      "const defaultProps: IToolBarProps = {",
-      " numberOfPokemon: 3",
-      "};",
-      "",
-      "const defaultPropsWithFakePromis: IToolBarProps = {",
-      "numberOfPokemon: 3,",
-      "withFakePromise: true",
-      "}",
-      "",
-      "xdescribe(\"ToolBar component\", () => {",
+      "xdescribe(\"GameZone component\", () => {",
+      "describe(\"ToolBar component\", () => {",
       "describe(\"Event and actions\", () => {",
       "beforeEach(() => {",
-      "render(<ToolBar {...defaultProps} />);",
+      "render(<GameZone />);",
       "});",
-      "",
-      "it(\"Should increment pokeball number with add button (only one)\", async () => {",
+      "it(\"Should increment pokeball number with add button (only one)\", () => {",
       "fireEvent.click(",
       "screen.getByRole(",
       "\"button\",",
@@ -136,7 +127,7 @@
       ".toEqual(\"Pokeball: 1\");",
       "});",
       "",
-      "xit(\"Should increment pokeball number if user type something in free input\", async () => {",
+      "xit(\"Should increment pokeball number if user type something in free input\", () => {",
       "userEvent.type(",
       "screen.getByPlaceholderText(\"ex : 5\"), \"6\"",
       ");",
@@ -156,7 +147,7 @@
       "",
       "xdescribe(\"Event and actions (async)\", () => {",
       "it(\"Should increment pokeball number if user type something in free input\", async () => {",
-      "render(<ToolBar {...defaultPropsWithFakePromis} />);",
+      "render(<GameZone withFakePromise />);",
       "",
       "userEvent.type(",
       "screen.getByPlaceholderText(\"ex : 5\"), \"6\"",
@@ -173,8 +164,9 @@
       "expect(newPokeballNumber.textContent).toEqual(\"Pokeball: 6\");",
       "});",
       "});",
+      "});",
       "});"
     ],
-    "description": "Prepare Toolbar test"
+    "description": "Prepare GameZone test"
   }
 }

@@ -71,7 +71,7 @@ describe("GameZone component", () => {
 
     describe("Event and actions (async)", () => {
       it("Should increment pokeball number if user type something in free input", async () => {
-        render(<GameZone />);
+        render(<GameZone withFakePromise />);
 
         userEvent.type(
           screen.getByPlaceholderText("ex : 5"), "6"
