@@ -109,7 +109,7 @@ export const PokemonCard = ({ pokemon, type, pokeball, removeFct, addFct }: IPok
               className="btn btn-success"
               title="Add Pokemon"
               onClick={addFct ? () => addFct(pokemon.id) : () => { }}
-              disabled={!pokeball && !!addFct}>
+              disabled={!pokeball || !addFct}>
               Add to Pokedex
             </button>
           )
