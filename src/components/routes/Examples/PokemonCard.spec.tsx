@@ -12,8 +12,10 @@ const defaultProps: IPokemonCardProps = {
     base_experience: 55,
     types: [
       {
-        name: "test type",
-        url: "https://test/"
+        type: {
+          name: "test type",
+          url: "https://test/"
+        }
       }
     ]
   }

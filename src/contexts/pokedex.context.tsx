@@ -1,8 +1,11 @@
 import React from 'react';
 
 export interface IPokemonType {
-  name: string;
-  url: string;
+  slot?: number;
+  type: {
+    name: string;
+    url: string;
+  }
 }
 
 export interface IPokemon {
@@ -25,16 +28,37 @@ export const POKEMON: IPokemon[] = [
     base_experience: 64,
     types: [
       {
-        name: "grass",
-        url: "https://pokeapi.co/api/v2/type/12/"
+        type: {
+          name: "grass",
+          url: "https://pokeapi.co/api/v2/type/12/"
+        }
       },
       {
-        name: "poison",
-        url: "https://pokeapi.co/api/v2/type/4/"
+        type: {
+          name: "poison",
+          url: "https://pokeapi.co/api/v2/type/4/"
+        }
       }
     ]
   }
 ];
+
+export const FREE_POKEMON: IPokemon = {
+  id: 10,
+  name: "caterpie",
+  height: 3,
+  order: 14,
+  weight: 29,
+  base_experience: 39,
+  types: [
+    {
+      type: {
+        name: "bug",
+        url: "https://pokeapi.co/api/v2/type/7/"
+      }
+    }
+  ]
+}
 
 export const POKEMON_WITHOUT_TYPE: IPokemon[] = [
   {
@@ -57,12 +81,16 @@ export const POKEDEX: IPokemon[] = [
     base_experience: 64,
     types: [
       {
-        name: "grass",
-        url: "https://pokeapi.co/api/v2/type/12/"
+        type: {
+          name: "grass",
+          url: "https://pokeapi.co/api/v2/type/12/"
+        }
       },
       {
-        name: "poison",
-        url: "https://pokeapi.co/api/v2/type/4/"
+        type: {
+          name: "poison",
+          url: "https://pokeapi.co/api/v2/type/4/"
+        }
       }
     ]
   },
@@ -75,12 +103,16 @@ export const POKEDEX: IPokemon[] = [
     base_experience: 50,
     types: [
       {
-        name: "normal",
-        url: "https://pokeapi.co/api/v2/type/1/"
+        type: {
+          name: "normal",
+          url: "https://pokeapi.co/api/v2/type/1/"
+        }
       },
       {
-        name: "flying",
-        url: "https://pokeapi.co/api/v2/type/3/"
+        type: {
+          name: "flying",
+          url: "https://pokeapi.co/api/v2/type/3/"
+        }
       }
     ]
   }
@@ -88,20 +120,29 @@ export const POKEDEX: IPokemon[] = [
 
 interface PokedexContextProps {
   pokemon: IPokemon[];
+  freePokemon: IPokemon | null;
 
   removePokemon: (id: number) => void;
   addPokemon: (newPokemon: IPokemon) => void;
+  addFreePokemon: (newPokemon: IPokemon) => void,
+  removeFreePokemon: () => void,
+  alreadyExist: (numeroOfPokemon: number) => boolean;
 }
 
 export const PokedexContext = React.createContext<PokedexContextProps>({
   pokemon: POKEDEX,
+  freePokemon: FREE_POKEMON,
 
   removePokemon: (_id: number) => { /* */ },
-  addPokemon: (_newPokemon: IPokemon) => { /* */ }
+  addPokemon: (_newPokemon: IPokemon) => { /* */ },
+  addFreePokemon: (_newPokemon: IPokemon) => { /* */ },
+  removeFreePokemon: () => { /* */ },
+  alreadyExist: (_numeroOfPokemon: number) => { return true }
 });
 
 export const PokedexProvider: React.FC = ({ children }) => {
   const [pokemon, setPokemon] = React.useState<IPokemon[]>(POKEDEX);
+  const [freePokemon, setFreePokemon] = React.useState<IPokemon | null>(FREE_POKEMON);
 
   const removePokemon = (id: number): void => {
     const initialArray = [...pokemon];
@@ -118,11 +159,27 @@ export const PokedexProvider: React.FC = ({ children }) => {
     setPokemon(list);
   }
 
+  const removeFreePokemon = (): void => {
+    setFreePokemon(null);
+  }
+
+  const addFreePokemon = (newPokemon: IPokemon): void => {
+    setFreePokemon(newPokemon);
+  }
+
+  const alreadyExist = (numeroOfPokemon: number): boolean => {
+    return !!pokemon.find((item: IPokemon) => item.order === numeroOfPokemon);
+  }
+
   return (
     <PokedexContext.Provider value={{
       pokemon,
+      freePokemon,
       removePokemon,
-      addPokemon
+      addPokemon,
+      removeFreePokemon,
+      addFreePokemon,
+      alreadyExist
     }}>
       {children}
     </PokedexContext.Provider>

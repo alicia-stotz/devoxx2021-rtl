@@ -50,13 +50,13 @@ export const PokemonCard = ({ pokemon, type, pokeball, removeFct, addFct }: IPok
               <th scope="row">Types</th>
               <td title="Pokemon information - types">
                 {
-                  pokemon.types.map((type: IPokemonType, index: number) =>
+                  pokemon.types.map((item: IPokemonType, index: number) =>
                     <React.Fragment key={index}>
                       <a className="text-capitalize"
-                        href={type.url}
+                        href={item.type.url}
                         rel="noreferrer"
                         target="_blank">
-                        {type.name}
+                        {item.type.name}
                       </a><br />
                     </React.Fragment>
                   )

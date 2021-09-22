@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { DefaultPokemonCard } from './DefaultPokemonCard';
 import { PokemonCardWithoutType } from './PokemonCardWithoutType';
 import { Pokedex } from './Pokedex';
-import { GameZone } from './GameZone';
+import { GameZone } from './GameZone/GameZone';
 
 export const Examples = () => {
   return <div className="example-page">

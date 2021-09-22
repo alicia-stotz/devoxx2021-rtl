@@ -1,25 +1,11 @@
 import React from 'react';
 
-import { PokedexContext, IPokemon } from '../../../contexts/pokedex.context';
+import { PokedexContext, IPokemon } from '../../../../contexts/pokedex.context';
 
-import { PokemonCard } from './PokemonCard';
+import { PokemonCard } from '../PokemonCard';
 import { ToolBar } from './ToolBar';
-import { SummaryButton } from '../../shared/SummaryButton';
-
-const POKEMON: IPokemon = {
-  id: 10,
-  name: "caterpie",
-  height: 3,
-  order: 14,
-  weight: 29,
-  base_experience: 39,
-  types: [
-    {
-      name: "bug",
-      url: "https://pokeapi.co/api/v2/type/7/"
-    }
-  ]
-}
+import { Finder } from './Finder';
+import { SummaryButton } from '../../../shared/SummaryButton';
 
 export interface IGameZoneProps {
   withFakePromise?: boolean
@@ -67,13 +53,12 @@ const TITLE_CONTENT: JSX.Element =
   </div>
 export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
   const [pokeball, setPokeball] = React.useState<number>(0);
-  const { pokemon, addPokemon } = React.useContext(PokedexContext);
-  const [freePokemon, setFreePokemon] = React.useState<IPokemon | null>(POKEMON);
+  const { pokemon, addPokemon, freePokemon, removeFreePokemon, addFreePokemon } = React.useContext(PokedexContext);
 
   const addFct = () => {
     if (Date.now() % 2 === 0 && freePokemon !== null) {
       addPokemon(freePokemon);
-      setFreePokemon(null);
+      removeFreePokemon();
     }
     setPokeball(pokeball - 1);
   }
@@ -90,16 +75,17 @@ export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
         setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
       />
     </div>
-    {
-      freePokemon ?
-        <div className="col-12 col-lg-6">
+    {!freePokemon && <hr />}
+    <div className="col-12 col-lg-6">
+      {
+        freePokemon ?
           <PokemonCard
             pokemon={freePokemon}
             type="Grass"
             pokeball={pokeball > 0}
             addFct={addFct} />
-        </div>
-        : null
-    }
+          : <Finder setPokemon={(newPokemon: IPokemon) => addFreePokemon(newPokemon)} />
+      }
+    </div>
   </div>
 }
