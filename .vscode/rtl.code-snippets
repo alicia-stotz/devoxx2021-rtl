@@ -2,7 +2,7 @@
   "RTL getBy": {
     "prefix": "rtl.getBy",
     "body": [
-      "expect(screen.getByText('test')).toBeInTheDocument();"
+      "expect(screen.getByText('bulbasaur')).toBeInTheDocument();"
     ],
     "description": "First example getBy"
   },
