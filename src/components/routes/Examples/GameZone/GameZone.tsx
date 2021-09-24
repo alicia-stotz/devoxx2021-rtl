@@ -6,6 +6,7 @@ import { PokemonCard } from '../PokemonCard';
 import { ToolBar } from './ToolBar';
 import { Finder } from './Finder';
 import { SummaryButton } from '../../../shared/SummaryButton';
+import { NotificationType, useNotification } from '../../../shared/Notification';
 
 export interface IGameZoneProps {
   withFakePromise?: boolean
@@ -54,11 +55,15 @@ const TITLE_CONTENT: JSX.Element =
 export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
   const [pokeball, setPokeball] = React.useState<number>(0);
   const { pokemon, addPokemon, freePokemon, removeFreePokemon, addFreePokemon } = React.useContext(PokedexContext);
+  const { addNotification } = useNotification();
 
   const addFct = () => {
     if (Date.now() % 2 === 0 && freePokemon !== null) {
       addPokemon(freePokemon);
+      addNotification(NotificationType.SUCCESS, `Le Pokemon ${freePokemon.name} a été ajouté au Pokedex`)
       removeFreePokemon();
+    } else {
+      addNotification(NotificationType.ERROR, 'Le Pokemon n\'a pas été attrapé');
     }
     setPokeball(pokeball - 1);
   }
