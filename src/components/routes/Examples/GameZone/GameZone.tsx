@@ -8,10 +8,6 @@ import { Finder } from './Finder';
 import { SummaryButton } from '../../../shared/SummaryButton';
 import { NotificationType, useNotification } from '../../../shared/Notification';
 
-export interface IGameZoneProps {
-  withFakePromise?: boolean
-}
-
 const SUMMARY_CONTENT: JSX.Element = <div>
   <ul>
     <li>
@@ -52,15 +48,16 @@ const TITLE_CONTENT: JSX.Element =
     <h3 className="mb-0">Zone de jeu</h3>
     <span className="text-secondary fw-lighter">user event, findBy, async</span>
   </div>
-export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
+export const GameZone = () => {
   const [pokeball, setPokeball] = React.useState<number>(0);
+  const [dollar, setDollar] = React.useState<number>(3000);
   const { pokemon, addPokemon, freePokemon, removeFreePokemon, addFreePokemon } = React.useContext(PokedexContext);
   const { addNotification } = useNotification();
 
   const addFct = () => {
     if (Date.now() % 2 === 0 && freePokemon !== null) {
       addPokemon(freePokemon);
-      addNotification(NotificationType.SUCCESS, `Le Pokemon ${freePokemon.name} a été ajouté au Pokedex`)
+      addNotification(NotificationType.SUCCESS, `Le Pokemon ${freePokemon.name} a été ajouté au Pokedex`);
       removeFreePokemon();
     } else {
       addNotification(NotificationType.ERROR, 'Le Pokemon n\'a pas été attrapé');
@@ -74,9 +71,10 @@ export const GameZone = ({ withFakePromise }: IGameZoneProps) => {
     </div>
     <div className="col-12 mb-3">
       <ToolBar
-        withFakePromise={withFakePromise}
         numberOfPokeball={pokeball}
+        numberOfDollar={dollar}
         numberOfPokemon={pokemon.length}
+        setNumberOfDollar={(remaningDollar: number) => setDollar(remaningDollar)}
         setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
       />
     </div>

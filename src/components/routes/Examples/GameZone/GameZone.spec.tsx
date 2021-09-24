@@ -35,23 +35,6 @@ describe("GameZone component", () => {
           .toEqual("Pokeball: 1");
       });
 
-      it("Should increment pokeball number if user type something in free input", async () => {
-        userEvent.type(
-          screen.getByPlaceholderText("ex : 5"), "6"
-        );
-        userEvent.click(
-          screen.getByRole(
-            "button",
-            { name: "Add number of Pokeball write in input" }
-          )
-        );
-
-        const newPokeballNumber = screen.getByTitle("Number of pokeball");
-
-        expect(screen.getByDisplayValue("6")).toBeInTheDocument();
-        expect(newPokeballNumber.textContent).toEqual("Pokeball: 6");
-      });
-
       it("Should remove disabled on add button if user type somthing", async () => {
         expect(screen.getByRole("button", { name: "Add number of Pokeball write in input" })).toBeDisabled();
         userEvent.type(
@@ -71,7 +54,7 @@ describe("GameZone component", () => {
 
     describe("Event and actions (async)", () => {
       it("Should increment pokeball number if user type something in free input", async () => {
-        render(<GameZone withFakePromise />);
+        render(<GameZone />);
 
         userEvent.type(
           screen.getByPlaceholderText("ex : 5"), "6"

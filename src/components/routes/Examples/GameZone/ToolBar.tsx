@@ -1,15 +1,27 @@
 import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 
+import { NotificationType, useNotification } from '../../../shared/Notification';
+
+const POKEBALL_PRICE = 50;
+
 export interface IToolBarProps {
   numberOfPokemon: number;
   numberOfPokeball: number;
-  withFakePromise?: boolean;
+  numberOfDollar: number;
   setNumberOfPokeball: (pokeball: number) => void;
+  setNumberOfDollar: (dollar: number) => void;
 }
 
-export const ToolBar = ({ numberOfPokemon, numberOfPokeball, withFakePromise, setNumberOfPokeball }: IToolBarProps) => {
+export const ToolBar = ({
+  numberOfPokemon,
+  numberOfPokeball,
+  numberOfDollar,
+  setNumberOfPokeball,
+  setNumberOfDollar
+}: IToolBarProps) => {
   const [inputPokeball, setInputPokeball] = React.useState<number>(0);
+  const { addNotification } = useNotification();
 
   const typePokeballHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     setInputPokeball(parseInt(e.currentTarget.value, 10));
@@ -26,8 +38,14 @@ export const ToolBar = ({ numberOfPokemon, numberOfPokeball, withFakePromise, se
   }
 
   const onClickWithPromise = async (pNumber: number) => {
-    const pokeballNumber = await fakePromise(pNumber);
-    setNumberOfPokeball(numberOfPokeball + pokeballNumber);
+    if (numberOfDollar >= pNumber * POKEBALL_PRICE) {
+      const pokeballNumber = await fakePromise(pNumber);
+      setNumberOfPokeball(numberOfPokeball + pokeballNumber);
+      setNumberOfDollar(numberOfDollar - POKEBALL_PRICE);
+      addNotification(NotificationType.SUCCESS, `Vous avez acheté ${pNumber} pokeball`);
+    } else {
+      addNotification(NotificationType.ERROR, "Vous n'avez plus assez d'argent");
+    }
   }
 
   return <div className="tool-bar card px-3">
@@ -37,8 +55,12 @@ export const ToolBar = ({ numberOfPokemon, numberOfPokeball, withFakePromise, se
           Pokedex: <strong>{numberOfPokemon}</strong>
         </span>
         <span className="text-secondary">|</span>
-        <span className="ms-2" title="Number of pokeball">
+        <span className="mx-2" title="Number of pokeball">
           Pokeball: <strong>{numberOfPokeball}</strong>
+        </span>
+        <span className="text-secondary">|</span>
+        <span className="ms-2" title="Number of dollar">
+          $: <strong>{numberOfDollar}</strong>
         </span>
       </div>
       <div className="input-group w-50">
@@ -57,16 +79,17 @@ export const ToolBar = ({ numberOfPokemon, numberOfPokeball, withFakePromise, se
           className="btn btn-outline-secondary btn-sm"
           title="Add number of Pokeball write in input"
           disabled={!inputPokeball}
-          onClick={() => inputPokeball ?
-            (withFakePromise ? onClickWithPromise(inputPokeball) : setNumberOfPokeball(numberOfPokeball + inputPokeball))
-            : {}}
+          onClick={() => inputPokeball ? onClickWithPromise(inputPokeball) : {}}
           type="button">
           Ajouter les Pokeball
         </button>
         <button
           className="btn btn-outline-secondary btn-sm"
           title="Add one Pokeball"
-          onClick={() => setNumberOfPokeball(numberOfPokeball + 1)}
+          onClick={() => {
+            setNumberOfPokeball(numberOfPokeball + 1);
+            setNumberOfDollar(numberOfDollar - POKEBALL_PRICE)
+          }}
           type="button">
           <AddIcon fontSize="small" />
         </button>
