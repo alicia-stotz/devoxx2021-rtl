@@ -51,6 +51,7 @@ const TITLE_CONTENT: JSX.Element =
 export const GameZone = () => {
   const [pokeball, setPokeball] = React.useState<number>(0);
   const [dollar, setDollar] = React.useState<number>(3000);
+  const [tentative, setTentative] = React.useState<number>(2);
   const { pokemon, addPokemon, freePokemon, removeFreePokemon, addFreePokemon } = React.useContext(PokedexContext);
   const { addNotification } = useNotification();
 
@@ -59,8 +60,15 @@ export const GameZone = () => {
       addPokemon(freePokemon);
       addNotification(NotificationType.SUCCESS, `Le Pokemon ${freePokemon.name} a été ajouté au Pokedex`);
       removeFreePokemon();
+      setTentative(2);
     } else {
       addNotification(NotificationType.ERROR, 'Le Pokemon n\'a pas été attrapé');
+      if (tentative === 0) {
+        addNotification(NotificationType.INFO, "Oh non ! Le pokemon s'est echappé");
+        removeFreePokemon();
+      } else {
+        setTentative(tentative - 1);
+      }
     }
     setPokeball(pokeball - 1);
   }

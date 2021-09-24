@@ -85,7 +85,8 @@ export const ToolBar = ({
         </button>
         <button
           className="btn btn-outline-secondary btn-sm"
-          title="Add one Pokeball"
+          title={numberOfDollar >= POKEBALL_PRICE ? "Add one Pokeball" : "Not enough money"}
+          disabled={numberOfDollar < POKEBALL_PRICE}
           onClick={() => {
             setNumberOfPokeball(numberOfPokeball + 1);
             setNumberOfDollar(numberOfDollar - POKEBALL_PRICE)
