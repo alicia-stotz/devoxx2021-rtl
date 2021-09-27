@@ -27,7 +27,7 @@ export const SummaryButton = ({ content, title }: ISummaryButtonProps) => {
             style={{ float: "right" }}
             title="View summary"
             onClick={() => setDisplaySummary(true)}>
-            Summary
+            Résumé
           </button>
         </div>
     }

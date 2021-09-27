@@ -33,15 +33,15 @@ export const PokemonCard = ({ pokemon, type, pokeball, removeFct, addFct }: IPok
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Height</th>
+            <th scope="row">Taille</th>
             <td title="Pokemon information - height">{pokemon.height}</td>
           </tr>
           <tr>
-            <th scope="row">Weight</th>
+            <th scope="row">Poids</th>
             <td title="Pokemon information - weight">{pokemon.weight}</td>
           </tr>
           <tr>
-            <th scope="row">Base experience</th>
+            <th scope="row">Expérience de base</th>
             <td title="Pokemon information - base experience">{pokemon.base_experience}</td>
           </tr>
           {
@@ -93,7 +93,7 @@ export const PokemonCard = ({ pokemon, type, pokeball, removeFct, addFct }: IPok
         rel="noreferrer"
         className="btn btn-light mx-2"
         title="View Pokemon information">
-        All information
+        Informations
       </a>
       {
         type ?
@@ -103,14 +103,14 @@ export const PokemonCard = ({ pokemon, type, pokeball, removeFct, addFct }: IPok
               disabled={!removeFct}
               onClick={removeFct ? () => removeFct(pokemon.id) : () => { }}
               title="Remove Pokemon">
-              Remove
+              Relacher
             </button> :
             <button
               className="btn btn-success"
               title="Add Pokemon"
               onClick={addFct ? () => addFct(pokemon.id) : () => { }}
               disabled={!pokeball || !addFct}>
-              Add to Pokedex
+              Attraper
             </button>
           )
           : null

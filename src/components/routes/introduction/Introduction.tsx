@@ -29,7 +29,7 @@ export const Introduction = () => {
         <ArrowForwardIcon fontSize="small" /> N'est pas un "test runner" ou un framework.
       </p>
       <p className="mb-4">
-        <ArrowForwardIcon fontSize="small" />React Testing Library est inclu dans create-react-app.</p>
+        <ArrowForwardIcon fontSize="small" />React Testing Library est inclus dans create-react-app.</p>
     </div>
   </div>
 }

@@ -28,13 +28,13 @@ const list: ISummaryList[] = [
         id: 'defaultPokemonCard',
         link: '/examples/default',
         title: 'Default Pokemon card',
-        label: 'Card Pokemon - Part 1',
+        label: 'Carte Pokemon - Partie 1',
       },
       {
         id: 'pokemonCardWithoutType',
         link: '/examples/withoutType',
         title: 'Pokemon card without type',
-        label: 'Card Pokemon - Part 2',
+        label: 'Carte Pokemon - Partie 2',
       },
       {
         id: 'pokedex',
@@ -45,8 +45,8 @@ const list: ISummaryList[] = [
       {
         id: 'gameZone',
         link: '/examples/gameZone',
-        title: 'Zone de jeu',
-        label: 'Game zone',
+        title: 'Game Zone',
+        label: 'Zone de jeu',
       }
     ]
   },

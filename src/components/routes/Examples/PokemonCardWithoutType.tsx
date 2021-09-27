@@ -19,7 +19,7 @@ const SUMMARY_CONTENT: JSX.Element = <div>
 </div>
 const TITLE_CONTENT: JSX.Element =
 	<div>
-		<h3 className="mb-0">Card Pokemon - Sans type</h3>
+		<h3 className="mb-0">Carte Pokemon - Sans type</h3>
 		<span className="text-secondary fw-lighter">queryBy</span>
 	</div>
 export const PokemonCardWithoutType = () => {

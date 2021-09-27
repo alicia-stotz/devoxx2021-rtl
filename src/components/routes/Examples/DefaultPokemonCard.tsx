@@ -38,7 +38,7 @@ const SUMMARY_CONTENT: JSX.Element = <div>
 </div>
 const TITLE_CONTENT: JSX.Element =
   <div>
-    <h3 className="mb-0">Card Pokemon</h3>
+    <h3 className="mb-0">Carte Pokemon</h3>
     <span className="text-secondary fw-lighter">render, screen, getBy</span>
   </div>
 export const DefaultPokemonCard = () => {
