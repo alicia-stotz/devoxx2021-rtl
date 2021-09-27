@@ -50,6 +50,9 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "resetMocks": false
+  },
   "devDependencies": {
     "@types/react": "^17.0.15"
   }

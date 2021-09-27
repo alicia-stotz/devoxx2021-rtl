@@ -4,6 +4,10 @@ export interface IInputNumberProps {
   children?: JSX.Element;
   error?: string;
   componentClass?: string;
+  placeholder: string;
+  title: string;
+  name: string;
+  id: string;
   setInputNumber: (inputValue: number) => void;
   inputNumber: number;
   setInvalidNumber?: (isInvalid: boolean) => void;
@@ -15,6 +19,10 @@ export const InputNumber = ({
   componentClass,
   setInputNumber,
   inputNumber,
+  placeholder,
+  title,
+  name,
+  id,
   setInvalidNumber
 }: IInputNumberProps) => {
   const typeNumberHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
@@ -33,15 +41,15 @@ export const InputNumber = ({
   return <div className={`input-group has-validation${componentClass ? ` ${componentClass}` : ""}`}>
     <input
       type="number"
-      id="pokemonNumber"
-      name="pokemon number"
+      id={id}
+      name={name}
       onInput={typeNumberHandler}
-      title="Numero of pokemon to search"
+      title={title}
       className={`form-control ${error ? " is-invalid" : ""}`}
       min="0"
       onKeyDown={preventKeyDownHandler}
       value={inputNumber || ""}
-      placeholder="ex : 15" />
+      placeholder={placeholder} />
     {
       error ?
         <div className="invalid-feedback" title="Pokemon already exist">

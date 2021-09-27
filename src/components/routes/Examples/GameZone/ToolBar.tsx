@@ -56,6 +56,10 @@ export const ToolBar = ({
       </div>
       <InputNumber
         inputNumber={inputPokeball}
+        placeholder="ex : 5"
+        id="pokeballNumber"
+        name="Pokeball number"
+        title="Number of pokeball to add"
         setInputNumber={setInputPokeball}
         componentClass="w-50"
         children={
@@ -79,6 +83,9 @@ export const ToolBar = ({
               type="button">
               <AddIcon fontSize="small" />
             </button>
+            <div className="invalid-feedback" title="Pokemon already exist">
+              test
+            </div>
           </>
         } />
     </div>

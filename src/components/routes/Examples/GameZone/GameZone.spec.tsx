@@ -1,7 +1,22 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
+import { POKEDEX, PokedexContext } from '../../../../contexts/pokedex.context';
 import { GameZone } from "./GameZone";
+
+const alreadyExistFct = jest.fn();
+alreadyExistFct.mockReturnValue(true);
+
+const defaultPokedexContext = {
+  pokemon: POKEDEX,
+  freePokemon: null,
+
+  removePokemon: jest.fn(),
+  addPokemon: jest.fn(),
+  addFreePokemon: jest.fn(),
+  removeFreePokemon: jest.fn(),
+  alreadyExist: alreadyExistFct
+};
 
 describe("GameZone component", () => {
   describe("ToolBar component", () => {
@@ -22,7 +37,7 @@ describe("GameZone component", () => {
         render(<GameZone />);
       });
       it("Should increment pokeball number with add button (only one)", () => {
-        fireEvent.click(
+        userEvent.click(
           screen.getByRole(
             "button",
             { name: "Add one Pokeball" }
@@ -59,7 +74,7 @@ describe("GameZone component", () => {
         userEvent.type(
           screen.getByPlaceholderText("ex : 5"), "6"
         );
-        fireEvent.click(
+        userEvent.click(
           screen.getByRole(
             "button",
             { name: "Add number of Pokeball write in input" }
@@ -69,6 +84,40 @@ describe("GameZone component", () => {
         const newPokeballNumber = await screen.findByTitle("Number of pokeball");
         expect(screen.getByDisplayValue("6")).toBeInTheDocument();
         expect(newPokeballNumber.textContent).toEqual("Pokeball: 6");
+      });
+    });
+  });
+
+  describe("Finder component", () => {
+    describe("Default page", () => {
+      it("Should not display finder component", () => {
+        render(<GameZone />);
+        expect(screen.queryByText("Rechercher un nouveau Pokemon")).toBeNull();
+      });
+    });
+    describe("Default Finder", () => {
+      beforeEach(() => {
+        render(<PokedexContext.Provider value={defaultPokedexContext}>
+          <GameZone />
+        </PokedexContext.Provider>);
+      });
+      it("Should display finder component", () => {
+        expect(screen.getByText("Rechercher un nouveau Pokemon")).toBeInTheDocument();
+      });
+      it("Should disabled/enable button when user type on input", () => {
+        expect(screen.getByRole("button", { name: "Search Pokemon" })).toBeDisabled();
+        userEvent.type(
+          screen.getByPlaceholderText("ex : 15"), "3"
+        );
+        expect(screen.getByRole("button", { name: "Search Pokemon" })).not.toBeDisabled();
+      });
+      it("Should display error message if pokemon is already present", async () => {
+        userEvent.type(
+          screen.getByPlaceholderText("ex : 15"), "1"
+        );
+        userEvent.click(screen.getByRole("button", { name: "Search Pokemon" }));
+        screen.debug()
+        expect(alreadyExistFct).toHaveBeenCalled();
       });
     });
   });

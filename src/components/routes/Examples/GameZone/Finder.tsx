@@ -37,6 +37,10 @@ export const Finder = ({ setPokemon }: IFinderProps) => {
           inputNumber={inputNumber}
           setInputNumber={setInputNumber}
           setInvalidNumber={setInvalidNumber}
+          placeholder="ex : 15"
+          name="Numero of pokemon"
+          id="numeroOfPokemon"
+          title="Numero of pokemon to find"
           error={invalidNumber ? "Le Pokemon est déjà présent dans le Pokedex." : undefined} />
       </div>
       <div className="card-footer bg-white">
