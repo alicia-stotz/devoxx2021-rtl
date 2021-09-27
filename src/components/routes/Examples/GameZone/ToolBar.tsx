@@ -1,6 +1,7 @@
 import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 
+import { InputNumber } from '../../../shared/InputNumber';
 import { NotificationType, useNotification } from '../../../shared/Notification';
 
 const POKEBALL_PRICE = 50;
@@ -22,16 +23,6 @@ export const ToolBar = ({
 }: IToolBarProps) => {
   const [inputPokeball, setInputPokeball] = React.useState<number>(0);
   const { addNotification } = useNotification();
-
-  const typePokeballHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    setInputPokeball(parseInt(e.currentTarget.value, 10));
-  }
-
-  const preventKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === 'e' || e.key === ',' || e.key === '.' || e.key === ';') {
-      e.preventDefault();
-    }
-  }
 
   const fakePromise = (pokeballNumber: number): Promise<number> => {
     return Promise.resolve(pokeballNumber);
@@ -63,38 +54,33 @@ export const ToolBar = ({
           $: <strong>{numberOfDollar}</strong>
         </span>
       </div>
-      <div className="input-group w-50">
-        <input
-          type="number"
-          id="pokeball"
-          name="pokeball"
-          onInput={typePokeballHandler}
-          title="Number of Pokeball to add"
-          className="form-control form-control-sm"
-          min="0"
-          onKeyDown={preventKeyDownHandler}
-          value={inputPokeball || ""}
-          placeholder="ex : 5" />
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          title="Add number of Pokeball write in input"
-          disabled={!inputPokeball}
-          onClick={() => inputPokeball ? onClickWithPromise(inputPokeball) : {}}
-          type="button">
-          Ajouter les Pokeball
-        </button>
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          title={numberOfDollar >= POKEBALL_PRICE ? "Add one Pokeball" : "Not enough money"}
-          disabled={numberOfDollar < POKEBALL_PRICE}
-          onClick={() => {
-            setNumberOfPokeball(numberOfPokeball + 1);
-            setNumberOfDollar(numberOfDollar - POKEBALL_PRICE)
-          }}
-          type="button">
-          <AddIcon fontSize="small" />
-        </button>
-      </div>
+      <InputNumber
+        inputNumber={inputPokeball}
+        setInputNumber={setInputPokeball}
+        componentClass="w-50"
+        children={
+          <>
+            <button
+              className="btn btn-outline-secondary btn-sm"
+              title="Add number of Pokeball write in input"
+              disabled={!inputPokeball}
+              onClick={() => inputPokeball ? onClickWithPromise(inputPokeball) : {}}
+              type="button">
+              Ajouter les Pokeball
+            </button>
+            <button
+              className="btn btn-outline-secondary btn-sm"
+              title={numberOfDollar >= POKEBALL_PRICE ? "Add one Pokeball" : "Not enough money"}
+              disabled={numberOfDollar < POKEBALL_PRICE}
+              onClick={() => {
+                setNumberOfPokeball(numberOfPokeball + 1);
+                setNumberOfDollar(numberOfDollar - POKEBALL_PRICE)
+              }}
+              type="button">
+              <AddIcon fontSize="small" />
+            </button>
+          </>
+        } />
     </div>
   </div>
 };

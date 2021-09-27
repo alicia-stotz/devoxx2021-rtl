@@ -1,6 +1,8 @@
 import React from 'react';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
+import { InputNumber } from '../../../shared/InputNumber';
+
 import { IPokemon, PokedexContext } from '../../../../contexts/pokedex.context';
 import { getPokemon } from '../../../../services/pokemon';
 
@@ -13,17 +15,6 @@ export const Finder = ({ setPokemon }: IFinderProps) => {
   const [invalidNumber, setInvalidNumber] = React.useState<boolean>(false);
 
   const { alreadyExist } = React.useContext(PokedexContext);
-
-  const typeNumberHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    setInputNumber(parseInt(e.currentTarget.value, 10));
-    setInvalidNumber(false);
-  }
-
-  const preventKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === 'e' || e.key === ',' || e.key === '.' || e.key === ';') {
-      e.preventDefault();
-    }
-  }
 
   const findPokemon = async () => {
     if (alreadyExist(inputNumber)) {
@@ -42,26 +33,11 @@ export const Finder = ({ setPokemon }: IFinderProps) => {
       Rechercher un nouveau Pokemon</h5>
     <div className="card mt-3">
       <div className="card-body">
-        <div className="input-group has-validation">
-          <input
-            type="number"
-            id="pokemonNumber"
-            name="pokemon number"
-            onInput={typeNumberHandler}
-            title="Numero of pokemon to search"
-            className={`form-control ${invalidNumber ? " is-invalid" : ""}`}
-            min="0"
-            onKeyDown={preventKeyDownHandler}
-            value={inputNumber || ""}
-            placeholder="ex : 15" />
-          {
-            invalidNumber ?
-              <div className="invalid-feedback" title="Pokemon already exist">
-                Le Pokemon est déjà présent dans le Pokedex.
-              </div>
-              : null
-          }
-        </div>
+        <InputNumber
+          inputNumber={inputNumber}
+          setInputNumber={setInputNumber}
+          setInvalidNumber={setInvalidNumber}
+          error={invalidNumber ? "Le Pokemon est déjà présent dans le Pokedex." : undefined} />
       </div>
       <div className="card-footer bg-white">
         <button
