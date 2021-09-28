@@ -11,7 +11,7 @@ export const Conclusion = () => {
           rel="noreferrer"
           target="_blank"
           href="https://testing-library.com/docs/react-testing-library/cheatsheet#queries">
-          (Source : React Testing web site - Cheatsheet)
+          (Source : Testing Library web site - Cheatsheet)
         </a>
       </div>
 
