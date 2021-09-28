@@ -84,7 +84,6 @@ export const NotificationProvider: React.FC = ({ children }) => {
   }, [setNotifications]);
 
   const removeNotification = React.useCallback((id: number) => {
-    console.log('remove')
     setNotifications((notifications: INotification[]) =>
       notifications.filter((item: INotification) => item.id !== id)
     );

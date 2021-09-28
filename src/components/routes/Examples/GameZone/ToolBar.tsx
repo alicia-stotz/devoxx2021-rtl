@@ -1,6 +1,7 @@
 import React from 'react';
 import AddIcon from '@material-ui/icons/Add';
 
+import { UserSessionContext } from '../../../../contexts/userSession.context';
 import { InputNumber } from '../../../shared/InputNumber';
 import { NotificationType, useNotification } from '../../../shared/Notification';
 
@@ -9,19 +10,16 @@ const POKEBALL_PRICE = 50;
 export interface IToolBarProps {
   numberOfPokemon: number;
   numberOfPokeball: number;
-  numberOfDollar: number;
   setNumberOfPokeball: (pokeball: number) => void;
-  setNumberOfDollar: (dollar: number) => void;
 }
 
 export const ToolBar = ({
   numberOfPokemon,
   numberOfPokeball,
-  numberOfDollar,
-  setNumberOfPokeball,
-  setNumberOfDollar
+  setNumberOfPokeball
 }: IToolBarProps) => {
   const [inputPokeball, setInputPokeball] = React.useState<number>(0);
+  const { dollar, setDollar } = React.useContext(UserSessionContext);
   const { addNotification } = useNotification();
 
   const fakePromise = (pokeballNumber: number): Promise<number> => {
@@ -29,10 +27,10 @@ export const ToolBar = ({
   }
 
   const onClickWithPromise = async (pNumber: number) => {
-    if (numberOfDollar >= pNumber * POKEBALL_PRICE) {
+    if (dollar >= pNumber * POKEBALL_PRICE) {
       const pokeballNumber = await fakePromise(pNumber);
       setNumberOfPokeball(numberOfPokeball + pokeballNumber);
-      setNumberOfDollar(numberOfDollar - POKEBALL_PRICE);
+      setDollar(dollar - POKEBALL_PRICE);
       addNotification(NotificationType.SUCCESS, `Vous avez acheté ${pNumber} pokeball`);
     } else {
       addNotification(NotificationType.ERROR, "Vous n'avez plus assez d'argent");
@@ -51,7 +49,7 @@ export const ToolBar = ({
         </span>
         <span className="text-secondary">|</span>
         <span className="ms-2" title="Number of dollar">
-          $: <strong>{numberOfDollar}</strong>
+          $: <strong>{dollar}</strong>
         </span>
       </div>
       <InputNumber
@@ -74,11 +72,11 @@ export const ToolBar = ({
             </button>
             <button
               className="btn btn-outline-secondary btn-sm"
-              title={numberOfDollar >= POKEBALL_PRICE ? "Add one Pokeball" : "Not enough money"}
-              disabled={numberOfDollar < POKEBALL_PRICE}
+              title={dollar >= POKEBALL_PRICE ? "Add one Pokeball" : "Not enough money"}
+              disabled={dollar < POKEBALL_PRICE}
               onClick={() => {
                 setNumberOfPokeball(numberOfPokeball + 1);
-                setNumberOfDollar(numberOfDollar - POKEBALL_PRICE)
+                setDollar(dollar - POKEBALL_PRICE)
               }}
               type="button">
               <AddIcon fontSize="small" />

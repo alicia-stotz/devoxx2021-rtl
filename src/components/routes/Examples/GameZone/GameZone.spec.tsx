@@ -33,6 +33,10 @@ describe("GameZone component", () => {
         // selected by the title, the number of available Pokeball (title return an HTML content so we subselect by text content)
         expect(screen.getByTitle("Number of pokeball").textContent).toEqual("Pokeball: 0");
       });
+      it("Should display dollar", () => {
+        // selected by the title, the dollar (title return an HTML content so we subselect by text content)
+        expect(screen.getByTitle("Number of dollar").textContent).toEqual("$: 2000");
+      });
     });
 
     describe("Event and actions", () => {

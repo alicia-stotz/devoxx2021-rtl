@@ -50,7 +50,6 @@ const TITLE_CONTENT: JSX.Element =
   </div>
 export const GameZone = () => {
   const [pokeball, setPokeball] = React.useState<number>(0);
-  const [dollar, setDollar] = React.useState<number>(3000);
   const [tentative, setTentative] = React.useState<number>(2);
   const { pokemon, addPokemon, freePokemon, removeFreePokemon, addFreePokemon } = React.useContext(PokedexContext);
   const { addNotification } = useNotification();
@@ -80,9 +79,7 @@ export const GameZone = () => {
     <div className="col-12 mb-3">
       <ToolBar
         numberOfPokeball={pokeball}
-        numberOfDollar={dollar}
         numberOfPokemon={pokemon.length}
-        setNumberOfDollar={(remaningDollar: number) => setDollar(remaningDollar)}
         setNumberOfPokeball={(pokeballNumber: number) => setPokeball(pokeballNumber)}
       />
     </div>
