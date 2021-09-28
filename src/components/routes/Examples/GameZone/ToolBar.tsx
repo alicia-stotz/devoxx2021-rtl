@@ -83,9 +83,6 @@ export const ToolBar = ({
               type="button">
               <AddIcon fontSize="small" />
             </button>
-            <div className="invalid-feedback" title="Pokemon already exist">
-              test
-            </div>
           </>
         } />
     </div>

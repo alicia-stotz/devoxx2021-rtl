@@ -143,6 +143,7 @@
       ");",
       "",
       "const newPokeballNumber = screen.getByTitle(\"Number of pokeball\");",
+      "",
       "expect(screen.getByDisplayValue(\"6\")).toBeInTheDocument();",
       "",
       "expect(newPokeballNumber.textContent).toEqual(\"Pokeball: 6\");",

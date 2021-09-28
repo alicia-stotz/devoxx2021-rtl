@@ -1,13 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { POKEDEX, PokedexContext } from '../../../../contexts/pokedex.context';
+import { POKEDEX, FREE_POKEMON, PokedexContext } from '../../../../contexts/pokedex.context';
 import { GameZone } from "./GameZone";
 
 const alreadyExistFct = jest.fn();
-alreadyExistFct.mockReturnValue(true);
+alreadyExistFct.mockReturnValueOnce(true).mockReturnValue(false);
 
-const defaultPokedexContext = {
+let defaultPokedexContext = {
   pokemon: POKEDEX,
   freePokemon: null,
 
@@ -101,23 +101,51 @@ describe("GameZone component", () => {
           <GameZone />
         </PokedexContext.Provider>);
       });
-      it("Should display finder component", () => {
+
+      it("Should display finder component when there are no free pokemon", () => {
         expect(screen.getByText("Rechercher un nouveau Pokemon")).toBeInTheDocument();
       });
+
       it("Should disabled/enable button when user type on input", () => {
         expect(screen.getByRole("button", { name: "Search Pokemon" })).toBeDisabled();
+
         userEvent.type(
           screen.getByPlaceholderText("ex : 15"), "3"
         );
+
         expect(screen.getByRole("button", { name: "Search Pokemon" })).not.toBeDisabled();
       });
-      it("Should display error message if pokemon is already present", async () => {
+
+      it("Should display error message if pokemon is already present in pokedex", () => {
         userEvent.type(
           screen.getByPlaceholderText("ex : 15"), "1"
         );
         userEvent.click(screen.getByRole("button", { name: "Search Pokemon" }));
-        screen.debug()
+
         expect(alreadyExistFct).toHaveBeenCalled();
+        expect(screen.getByText("Le Pokemon est déjà présent dans le Pokedex.")).toBeInTheDocument();
+      });
+
+      it("Should call pokeAPI when click on button and remove finder component", async () => {
+        const spyFct = jest.spyOn(global, "fetch").mockImplementation(
+          (): Promise<any> =>
+            Promise.resolve({
+              ok: true,
+              status: 200,
+              json: () => Promise.resolve(FREE_POKEMON)
+            })
+        );
+
+        userEvent.type(
+          screen.getByPlaceholderText("ex : 15"), "2"
+        );
+        userEvent.click(screen.getByRole("button", { name: "Search Pokemon" }));
+
+        await waitFor(async () => {
+          expect(global.fetch).toHaveBeenCalled();
+
+        })
+        spyFct.mockClear();
       });
     });
   });

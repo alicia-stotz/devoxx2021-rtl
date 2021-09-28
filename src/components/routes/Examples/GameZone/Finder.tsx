@@ -18,7 +18,6 @@ export const Finder = ({ setPokemon }: IFinderProps) => {
 
   const findPokemon = async () => {
     if (alreadyExist(inputNumber)) {
-      console.warn('Pokemon already exist in the Pokedex');
       setInvalidNumber(true);
     } else {
       const newPokemon = await getPokemon(inputNumber);
